@@ -12,5 +12,10 @@ class Main
 	Erik.addFinishedCourse("Bokvetenskap 101");
 	Erik.addFinishedCourse("Datakomm. 301");
 	Erik.printList();
+    // För att testa om ReadRoomFile lyckas göra sitt.
+    ReadRoomFile creator = new ReadRoomFile();
+    creator.makeWorld();
+    creator.world[0].roomInfo();
+    creator.world[1].roomInfo();
     }
 }

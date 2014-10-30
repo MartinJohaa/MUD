@@ -20,4 +20,13 @@ public class Room{
         south[1] = southLock;
         west[1] = eastLock;
     }
+
+    // För att skriva ut all info om ett rum
+    public void roomInfo(){
+        System.out.printf("Roomname : %s \n", this.name );
+        System.out.printf("Northdirection, room %s, locked = %s \n", this.north[0], this.north[1]);
+        System.out.printf("Eastdirection, room %s, locked = %s \n", this.east[0], this.east[1]);
+        System.out.printf("Southdirection, room %s, locked = %s \n", this.south[0], this.south[1]);
+        System.out.printf("Westdirection, room %s, locked = %s \n", this.west[0], this.west[1]);
+    }
 }
