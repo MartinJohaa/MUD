@@ -15,7 +15,9 @@ public class ReadRoomFile{
         }
     }
     public void readFile(){
+        Room[] world = new Room[2];
         while (rooms.hasNext()){
+            int x = 0;
             String roomName = rooms.next();
             roomName = roomName.substring(0,roomName.length());
             String northConnection = rooms.next();
@@ -34,7 +36,9 @@ public class ReadRoomFile{
             southLock = southLock.substring(0,southLock.length());
             String westLock = rooms.next();
             westLock = westLock.substring(0,westLock.length());
-            //create Room-object
+            world[x] = new Room(roomName, northConnection, eastConnection, southConnection, westConnection
+            , northLock, eastLock, southLock, westLock);
+            x += 1;
         }
     }
 }
