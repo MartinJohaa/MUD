@@ -17,6 +17,24 @@ public class ReadRoomFile{
     public void readFile(){
         while (rooms.hasNext()){
             String roomName = rooms.next();
+            roomName = roomName.substring(0,roomName.length());
+            String northConnection = rooms.next();
+            northConnection = northConnection.substring(0,northConnection.length());
+            String eastConnection = rooms.next();
+            eastConnection = eastConnection.substring(0,eastConnection.length());
+            String southConnection = rooms.next();
+            southConnection = southConnection.substring(0,southConnection.length());
+            String westConnection = rooms.next();
+            westConnection = westConnection.substring(0,westConnection.length());
+            String northLock = rooms.next();
+            northLock = northLock.substring(0,northLock.length());
+            String eastLock = rooms.next();
+            eastLock = eastLock.substring(0,eastLock.length());
+            String southLock = rooms.next();
+            southLock = southLock.substring(0,southLock.length());
+            String westLock = rooms.next();
+            westLock = westLock.substring(0,westLock.length());
+            //create Room-object
         }
     }
 }
