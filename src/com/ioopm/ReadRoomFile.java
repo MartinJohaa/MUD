@@ -15,7 +15,6 @@ public class ReadRoomFile{
         }
     }
     public void readFile(){
-        //rooms = new Scanner(System.in);
         while (rooms.hasNext()){
             String roomName = rooms.next();
         }
