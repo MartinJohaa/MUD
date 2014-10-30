@@ -16,6 +16,6 @@ class Main
     ReadRoomFile creator = new ReadRoomFile();
     creator.makeWorld();
     creator.world[0].roomInfo();
-    creator.world[1].roomInfo();
+//    creator.world[1].roomInfo();
     }
 }
