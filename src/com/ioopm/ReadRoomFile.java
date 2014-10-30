@@ -20,28 +20,29 @@ public class ReadRoomFile{
         Room[] world = new Room[2];
         /* Bryter av vid "; ", Annars hade vi bara fått med den första delen
          av namnet innan mellanslaget. */
-        rooms.useDelimiter("; *");
+        rooms.useDelimiter("; ");
+        //Denna måste vara utanför loopen.
+        int x = 0;
         while (rooms.hasNext()) {
-            int x = 0;
 
             // Testar om nextLine tar hela rumsnamnet fram till ; .
             String roomName = rooms.next();
             // roomName = roomName.substring(0,roomName.length());
-            String northConnection = "X"; // rooms.next();
+            String northConnection = rooms.next();
             //northConnection = northConnection.substring(0, northConnection.length());
-            String eastConnection =  "X"; // rooms.next();
+            String eastConnection = rooms.next();
             //eastConnection = eastConnection.substring(0, eastConnection.length());
-            String southConnection = "X"; // rooms.next();
+            String southConnection = rooms.next();
             //southConnection = southConnection.substring(0, southConnection.length());
-            String westConnection = "X"; // rooms.next();
+            String westConnection = rooms.next();
             //westConnection = westConnection.substring(0, westConnection.length());
-            String northLock = "X"; // rooms.next();
+            String northLock = rooms.next();
             //northLock = northLock.substring(0, northLock.length());
-            String eastLock = "X"; // rooms.next();
+            String eastLock = rooms.next();
             //eastLock = eastLock.substring(0, eastLock.length());
-            String southLock = "X"; // rooms.next();
+            String southLock = rooms.next();
             //southLock = southLock.substring(0, southLock.length());
-            String westLock = "X"; // rooms.next();
+            String westLock = rooms.nextLine();
             //westLock = westLock.substring(0, westLock.length());
 
             world[x] = new Room(roomName, northConnection, eastConnection, southConnection, westConnection
