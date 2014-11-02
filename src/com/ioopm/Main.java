@@ -3,7 +3,19 @@ import java.util.Scanner;
 
 class Main
 {
+    public static int findIndex(String string, String[] array){
+        for (int i = 0; i <= 2; i++){
+            if (array[i].equals(string)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public static void main(String args[]){
+    String[] roomList = {
+    "Room 1357", "Hallway 4"
+    };
 	System.out.println("Enter player name: ");
 	Scanner name = new Scanner(System.in);
 	String namn1 = name.nextLine();
