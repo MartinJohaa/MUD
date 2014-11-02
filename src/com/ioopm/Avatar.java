@@ -2,6 +2,10 @@ package com.ioopm;
 import java.util.ArrayList;
 
 class Avatar{
+    private String[] roomList = {
+            "Room 1357", "Hallway 4"
+    };
+    private Room currentLocation;
     private String name;
     private ArrayList<String> unfinishedCourses = new ArrayList<String>();
     private ArrayList<String> finishedCourses = new ArrayList<String>();
@@ -30,4 +34,9 @@ class Avatar{
 	System.out.printf("%s\n", finishedCourses.get(length-1));
     }
     //public void finishCourse, hanterar metoder ovan och examinerar kurs
+    public void setCurrentLocation(String roomname){
+    int index = Main.findIndex(roomname, roomList);
+    this.currentLocation = Main.creator.world[index];
+    }
+
 }

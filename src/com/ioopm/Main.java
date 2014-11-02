@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 class Main
 {
+    public static ReadRoomFile creator;
     public static int findIndex(String string, String[] array){
         for (int i = 0; i <= 2; i++){
             if (array[i].equals(string)){
@@ -12,11 +13,9 @@ class Main
         return -1;
     }
 
+
     public static void main(String args[]){
-    String[] roomList = {
-    "Room 1357", "Hallway 4"
-    };
-	System.out.println("Enter player name: ");
+    System.out.println("Enter player name: ");
 	Scanner name = new Scanner(System.in);
 	String namn1 = name.nextLine();
     Avatar Erik = new Avatar(namn1);
@@ -25,7 +24,7 @@ class Main
 	Erik.addFinishedCourse("Datakomm. 301");
 	Erik.printList();
     // För att testa om ReadRoomFile lyckas göra sitt.
-    ReadRoomFile creator = new ReadRoomFile();
+    creator = new ReadRoomFile();
     creator.makeWorld();
     creator.world[0].roomInfo();
     System.out.print("\n");

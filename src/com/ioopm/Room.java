@@ -29,4 +29,32 @@ public class Room{
         System.out.printf("Southdirection, room: %s, locked = %s \n", this.south[0], this.south[1]);
         System.out.printf("Westdirection, room: %s, locked = %s \n", this.west[0], this.west[1]);
     }
+    public boolean isOpen(String direction){
+        switch (direction){
+            case "North":
+                if (north[1].equals("True")){
+                    return true;
+                }else{ return false;}
+                break;
+            case "East":
+                if (east[1].equals("True")){
+                    return true;
+                }else{ return false;}
+                break;
+            case "South":
+                if (south[1].equals("True")){
+                    return true;
+                }else{ return false;}
+                break;
+            case "West":
+                if (west[1].equals("True")){
+                    return true;
+                }else{ return false;}
+                break;
+            default:
+                System.out.println("Valid options are: North, East, South, West!");
+                break;
+        }
+
+    }
 }
