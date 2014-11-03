@@ -27,7 +27,10 @@ class Main
     creator = new ReadRoomFile();
     creator.makeWorld();
     creator.world[0].roomInfo();
-    System.out.print("\n");
     creator.world[1].roomInfo();
+    Erik.setCurrentLocation("Hallway 4");
+    Erik.printCurrentLocation();
+    Erik.setCurrentLocation("Room 1357");
+    Erik.printCurrentLocation();
     }
 }

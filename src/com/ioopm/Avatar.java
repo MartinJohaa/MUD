@@ -38,5 +38,8 @@ class Avatar{
     int index = Main.findIndex(roomname, roomList);
     this.currentLocation = Main.creator.world[index];
     }
-
+    public void printCurrentLocation(){
+    System.out.println("This is where you are and what you see!");
+    currentLocation.roomInfo();
+    }
 }
