@@ -20,6 +20,46 @@ class Main
         return -1;
     }
 
+    /**
+     *
+     * @param name
+     */
+    public static void move(Avatar name){
+        System.out.println("Choose direction:");
+        Scanner option = new Scanner(System.in);
+        String choice = option.nextLine();
+        Room location = name.getCurrentLocation();
+        if (choice.equals("North")||choice.equals("East")||choice.equals("South")||choice.equals("West")){
+            if (location.validateConnection(choice)) {
+                if (location.isOpen(choice)){
+                    name.setCurrentLocation(location.getRoomNameInDirection(choice));
+
+                }else{
+                    System.out.println("Door is locked,l00k 4 k3y, bb!!");
+                }
+            }else{
+                System.out.println("There is no door in that direction!");
+                move(name);
+            }
+        }else{
+            System.out.println("Chosen direction is not valid! Valid directions are: North, East, South, West.");
+            move(name);
+        }
+    }
+
+    public static void playGame(Avatar name){
+        boolean gameOn = true;
+        while(gameOn) {
+            name.printCurrentLocation();
+            move(name);
+            System.out.println("Continue your adventure? (Yes/No)");
+            Scanner answerToTheUltimateQuestion = new Scanner(System.in);
+            String answer = answerToTheUltimateQuestion.nextLine();
+            if (answer.equals("No")||answer.equals("no")||answer.equals("NO")){
+                gameOn = false;
+            }
+        }
+    }
 
     public static void main(String args[]){
     System.out.println("Enter player name: ");
@@ -33,11 +73,13 @@ class Main
     // För att testa om ReadRoomFile lyckas göra sitt.
     creator = new ReadRoomFile();
     creator.makeWorld();
-    creator.world[0].roomInfo();
+    Erik.setCurrentLocation("Room 1357");
+    /*creator.world[0].roomInfo();
     creator.world[1].roomInfo();
     Erik.setCurrentLocation("Hallway 4");
     Erik.printCurrentLocation();
     Erik.setCurrentLocation("Room 1357");
-    Erik.printCurrentLocation();
+    Erik.printCurrentLocation();*/
+    playGame(Erik);
     }
 }

@@ -40,10 +40,10 @@ public class Room{
     // För att skriva ut all info om ett rum
     public void roomInfo(){
         System.out.printf("Roomname : %s \n", this.name );
-        System.out.printf("Northdirection, room: %s, locked = %s \n", this.north[0], this.north[1]);
-        System.out.printf("Eastdirection, room: %s, locked = %s \n", this.east[0], this.east[1]);
-        System.out.printf("Southdirection, room: %s, locked = %s \n", this.south[0], this.south[1]);
-        System.out.printf("Westdirection, room: %s, locked = %s \n", this.west[0], this.west[1]);
+        System.out.printf("Northdirection, room: %s, open = %s \n", this.north[0], this.north[1]);
+        System.out.printf("Eastdirection, room: %s, open = %s \n", this.east[0], this.east[1]);
+        System.out.printf("Southdirection, room: %s, open = %s \n", this.south[0], this.south[1]);
+        System.out.printf("Westdirection, room: %s, open = %s \n", this.west[0], this.west[1]);
         System.out.print("\n");
     }
     public boolean isOpen(String direction){
@@ -68,6 +68,51 @@ public class Room{
                 System.out.println("Valid options are: North, East, South, West!");
                 return false;
         }
-
+    }
+    public boolean validateConnection(String direction) {
+        switch (direction) {
+            case "North":
+                if (this.north[0].equals("X")) {
+                    return false;
+                } else {
+                    return true;
+                }
+            case "East":
+                if (this.east[0].equals("X")) {
+                    return false;
+                } else {
+                    return true;
+                }
+            case "South":
+                if (this.south[0].equals("X")) {
+                    return false;
+                } else {
+                    return true;
+                }
+            case "West":
+                if (this.west[0].equals("X")) {
+                    return false;
+                } else {
+                    return true;
+                }
+            default:
+                System.out.println("Valid options are: North, East, South, West!");
+                return false;
+        }
+    }
+    public String getRoomNameInDirection(String direction) {
+        switch (direction) {
+            case "North":
+                return this.north[0];
+            case "East":
+                return this.east[0];
+            case "South":
+                return this.south[0];
+            case "West":
+                return this.west[0];
+            default:
+                System.out.println("Valid options are: North, East, South, West!");
+                return "FEL";
+        }
     }
 }

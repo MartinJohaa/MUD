@@ -16,6 +16,9 @@ class Avatar{
     public String getName(){
 	return name;
     }
+    public Room getCurrentLocation(){
+        return this.currentLocation;
+    }
     public void addFinishedCourse(String courseName){
 	    finishedCourses.add(courseName);
     }
