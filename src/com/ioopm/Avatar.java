@@ -17,7 +17,7 @@ class Avatar{
 	return name;
     }
     public void addFinishedCourse(String courseName){
-	finishedCourses.add(courseName);
+	    finishedCourses.add(courseName);
     }
     public void addUnfinishedCourse(String course){
 	unfinishedCourses.add(course);

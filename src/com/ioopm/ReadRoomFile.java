@@ -13,19 +13,27 @@ public class ReadRoomFile{
             rooms = new Scanner(new File("rooms.txt"));
         }catch(IOException e){
             e.printStackTrace();
-            System.out.println("File not found! aheahidhadha");
+            System.out.println("File not found! check rooms.txt");
         }
     }
     public Room[] readFile() {
-        Room[] world = new Room[2];
-        /* Bryter av vid "; ", Annars hade vi bara fått med den första delen
-         av namnet innan mellanslaget. */
+        /**
+         *  Creating an array which is filled with room-objects
+         */
+        world = new Room[2];
+        /**
+         *  Separates the segments at "; " instead of just a blankspace
+         */
         rooms.useDelimiter("; ");
-        //Denna måste vara utanför loopen.
+        /**
+         * variable to increase index of world (the array the rooms are written to)
+         */
         int x = 0;
         while (rooms.hasNext()) {
-
-            // Testar om nextLine tar hela rumsnamnet fram till ; .
+            /**
+             * Puts the info from the different segments in a line from rooms.txt
+             * to variables
+             */
             String roomName = rooms.next();
             String northConnection = rooms.next();
             String eastConnection = rooms.next();
@@ -37,19 +45,22 @@ public class ReadRoomFile{
             String westLock = rooms.nextLine(); // Fråga ass!!
             westLock = westLock.substring(2, westLock.length());
 
+            /**
+             * Creating an array to which the rooms are written
+             */
             world[x] = new Room(roomName, northConnection, eastConnection, southConnection, westConnection
                     , northLock, eastLock, southLock, westLock);
             x += 1;
         }
-        /* Inte säker, men tror att vi måste returna world för
-         att komma åt den utanför sedan */
         return world;
     }
     public void closeFile(){
     rooms.close();
     }
 
-    // Lade till makeWorld som gör allt som krävs för att skapa världen.
+    /**
+     * this method creates the world in which the game is set
+     */
     public void makeWorld(){
         openFile();
         this.world = readFile();

@@ -4,6 +4,13 @@ import java.util.Scanner;
 class Main
 {
     public static ReadRoomFile creator;
+
+    /**
+     * method to find index of a specific string in an array
+     * @param string name of the room
+     * @param array name of array variable
+     * @return index of string in array
+     */
     public static int findIndex(String string, String[] array){
         for (int i = 0; i <= 2; i++){
             if (array[i].equals(string)){
