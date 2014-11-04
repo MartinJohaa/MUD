@@ -20,7 +20,7 @@ public class ReadRoomFile{
         /**
          *  Creating an array which is filled with room-objects
          */
-        world = new Room[2];
+        world = new Room[19];
         /**
          *  Separates the segments at "; " instead of just a blankspace
          */

@@ -12,7 +12,7 @@ class Main
      * @return index of string in array
      */
     public static int findIndex(String string, String[] array){
-        for (int i = 0; i <= 2; i++){
+        for (int i = 0; i <= 18; i++){
             if (array[i].equals(string)){
                 return i;
             }
@@ -73,7 +73,7 @@ class Main
     // För att testa om ReadRoomFile lyckas göra sitt.
     creator = new ReadRoomFile();
     creator.makeWorld();
-    Erik.setCurrentLocation("Room 1357");
+    Erik.setCurrentLocation("FooBar");
     /*creator.world[0].roomInfo();
     creator.world[1].roomInfo();
     Erik.setCurrentLocation("Hallway 4");

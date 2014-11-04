@@ -1,2 +1,19 @@
-Room 1357; X; X; X; Hallway 4; X; X; X; True
-Hallway 4; X; Room 1357; X; X; X; True; X; X
+FooBar; The Tupplurarna's Saxobeat Studio; Hallway 1; X; X; False; True; X; X
+The Tupplurarna's Saxobeat Studio; X; X; FooBar; X; X; X; False; X
+Hallway 1; Skrubben; Skyway 1-4; Room 1211; FooBar; False; True; False; True
+Skrubben; X; X; Hallway 1; X; X; X; False; X
+Room 1211; Hallway 1; X; X; Room 1210; False; X; X; True
+Room 1210; X; Room 1211; X; Room 1209; X; True; X; False
+Room 1209; X; Room 1210; X; X; X; False; X; X
+Skyway 1-4; X; Hallway 4; X; Hallway 1; X; True; X; True
+Hallway 4; Student Services; Skyway 4-2; Janitor's Hideout; Skyway 1-4; True; True; False; True
+Student Services; X; Archive; Hallway 4; X; X; False; True; X
+Archive; X; X; X; Student Services; X; X; X; False
+Janitor's Hideout; Hallway 4; X; X; X; False; X; X; X
+Skyway 4-2; X; Hallway 2; X; Hallway 4; X; True; X; True
+Hallway 2; Broken Elevator; Update; Room 2247; Skyway 4-2; False; False; True; True
+Broken Elevator; X; X; Hallway 2; X; X; X; False; X
+Update; X; X; X; Hallway 2; X; X; X; False
+Room 2247; Hallway 2; Room 2246; X; X; True; True; X; X
+Room 2246; X; Room 2245; X; Room 2247; X; False; X; True
+Room 2245; X; X; X; Room 2246; X; X; X; False

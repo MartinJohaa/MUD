@@ -3,7 +3,12 @@ import java.util.ArrayList;
 
 class Avatar{
     private String[] roomList = {
-            "Room 1357", "Hallway 4"
+            "FooBar", "The Tupplurarna's Saxobeat Studio",
+            "Hallway 1", "Skrubben", "Room 1211", "Room 1210",
+            "Room 1209", "Skyway 1-4", "Hallway 4",
+            "Student Services", "Archive", "Janitor's Hideout",
+            "Skyway 4-2", "Hallway 2", "Broken Elevator",
+            "Update", "Room 2247", "Room 2246", "Room 2245"
     };
     private Room currentLocation;
     private String name;
