@@ -11,6 +11,7 @@ public class Room{
     private String[] east = new String[2];
     private String[] south = new String[2];
     private String[] west = new String[2];
+    private ArrayList<Items> items = new ArrayList<Items>();
 
     /**
      * The constructor which creates a room-object
@@ -44,6 +45,7 @@ public class Room{
         System.out.printf("Eastdirection, room: %s, open = %s \n", this.east[0], this.east[1]);
         System.out.printf("Southdirection, room: %s, open = %s \n", this.south[0], this.south[1]);
         System.out.printf("Westdirection, room: %s, open = %s \n", this.west[0], this.west[1]);
+        System.out.printf("Items found in room: %s", getItems());
         System.out.print("\n");
     }
     public boolean isOpen(String direction){
@@ -114,5 +116,17 @@ public class Room{
                 System.out.println("Valid options are: North, East, South, West!");
                 return "FEL";
         }
+    }
+    public void addItem(Items item){
+        this.items.add(item);
+    }
+    public String getItems(){
+        String result;
+        for (int i = 0; i < items.size(); i++)
+            if (i == (items.size()-1)) {
+                result += items[i];
+            }else{
+                result += (items[i] + ", ");
+            }
     }
 }

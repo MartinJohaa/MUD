@@ -50,4 +50,7 @@ class Avatar{
     System.out.println("This is where you are and what you see!");
     currentLocation.roomInfo();
     }
+    public String[] getRoomList(){
+        return this.roomList;
+    }
 }

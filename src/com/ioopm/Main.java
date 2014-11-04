@@ -1,9 +1,12 @@
 package com.ioopm;
+import java.util.Random;
 import java.util.Scanner;
 
 class Main
 {
     public static ReadRoomFile creator;
+    public static Random randomizer = new Random();
+
 
     /**
      * method to find index of a specific string in an array
@@ -18,6 +21,35 @@ class Main
             }
         }
         return -1;
+    }
+
+
+    public static void placeKeys(Room[] world, Avatar name){
+        int keysForUnlockedRooms = 4;
+        int keysForLockedRooms = 8;
+        String[] unlockedRooms =  {
+                "FooBar", "Hallway 1", "Skyway 1-4", "Hallway 4",
+                "Student Services", "Skyway 4-2", "Hallway 2",
+                "Room 2247", "Room 2246"
+        };
+        String[] lockedRooms =  {
+                "The Tupplurarna's Saxobeat Studio",
+                "Skrubben", "Room 1211", "Room 1210",
+                "Room 1209", "Archive", "Janitor's Hideout",
+                "Broken Elevator", "Update","Room 2245"
+        };
+        for (int keysForUnlockedRooms; keysForUnlockedRooms > 0; keysForUnlockedRooms--){
+            Key newkey = new Key();
+            String tempRoom = unlockedRooms[randomizer.nextInt(9)];
+            int tempIndex = Main.findIndex(tempRoom, name.getRoomList());
+            world[tempIndex].addItem(newkey);
+        }
+        for (int keysForLockedRooms; keysForLockedRooms > 0; keysForLockedRooms--){
+            Key newkey = new Key();
+            String tempRoom = lockedRooms[randomizer.nextInt(10)];
+            int tempIndex = Main.findIndex(tempRoom, name.getRoomList());
+            world[tempIndex].addItem(newkey);
+        }
     }
 
     /**
@@ -35,7 +67,7 @@ class Main
                     name.setCurrentLocation(location.getRoomNameInDirection(choice));
 
                 }else{
-                    System.out.println("Door is locked,l00k 4 k3y, bb!!");
+                    System.out.println("Door is locked,You n33d k3y f0r 0p3n, bb!!");
                 }
             }else{
                 System.out.println("There is no door in that direction!");
