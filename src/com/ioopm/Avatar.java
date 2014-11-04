@@ -33,21 +33,20 @@ class Avatar{
     public void updateHP(int points){
 	HP += points;
     }
-    public void printList(){
+    /*public void printList(){
 	int length = finishedCourses.size();
 	System.out.print("You have completed the following courses: ");
 	for (int i = 0;i<(length-1);i++){
 	    System.out.printf("%s, ", finishedCourses.get(i));
 	}
 	System.out.printf("%s\n", finishedCourses.get(length-1));
-    }
+    }*/
     //public void finishCourse, hanterar metoder ovan och examinerar kurs
     public void setCurrentLocation(String roomname){
     int index = Main.findIndex(roomname, roomList);
     this.currentLocation = Main.creator.world[index];
     }
     public void printCurrentLocation(){
-    System.out.println("This is where you are and what you see!");
     currentLocation.roomInfo();
     }
     public String[] getRoomList(){

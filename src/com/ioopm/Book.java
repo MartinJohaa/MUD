@@ -14,14 +14,18 @@ public class Book extends Items {
 
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public String getAuthor() {
-        return author;
+        return this.author;
     }
 
     public int getHP() {
-        return HP;
+        return this.HP;
+    }
+
+    public String toString() {
+        return (this.title + "by" + this.author);
     }
 }

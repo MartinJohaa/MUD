@@ -41,11 +41,13 @@ public class Room {
 
     // För att skriva ut all info om ett rum
     public void roomInfo() {
-        System.out.printf("Roomname : %s \n", this.name);
-        System.out.printf("Northdirection, room: %s, open = %s \n", this.north[0], this.north[1]);
-        System.out.printf("Eastdirection, room: %s, open = %s \n", this.east[0], this.east[1]);
-        System.out.printf("Southdirection, room: %s, open = %s \n", this.south[0], this.south[1]);
-        System.out.printf("Westdirection, room: %s, open = %s \n", this.west[0], this.west[1]);
+        System.out.printf("You have entered %s. \n", this.name);
+        System.out.printf("Facing north, you can see a door leading to %s. \n", this.north[0]);
+        System.out.printf("If you turn your head to the right facing east " +
+                "you see another door leading to %s. \n", this.east[0]);
+        System.out.printf("The south door leads to %s, ", this.south[0]);
+        System.out.printf("and finally in your western direction you see a door" +
+                " that will lead you to %s. \n", this.west[0]);
         System.out.printf("Items found in room: %s", getItems());
         System.out.print("\n");
     }
@@ -137,10 +139,11 @@ public class Room {
     public String getItems() {
         String result = "";
         for (int i = 0; i < items.size(); i++) {
+            Items tempItem = items.get(i);
             if (i == (items.size() - 1)) {
-                result += items.get(i);
+                result += tempItem.toString();
             } else {
-                result += (items.get(i) + ", ");
+                result += (tempItem.toString() + ", ");
             }
         }
         return result;

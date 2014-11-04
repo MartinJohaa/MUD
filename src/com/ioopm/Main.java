@@ -101,7 +101,7 @@ class Main
 	System.out.printf("Hi, %s! Welcome to P0ll4x!!\n", Erik.getName());
 	Erik.addFinishedCourse("Bokvetenskap 101");
 	Erik.addFinishedCourse("Datakomm. 301");
-	Erik.printList();
+	//Erik.printList();
     // För att testa om ReadRoomFile lyckas göra sitt.
     creator = new ReadRoomFile();
     creator.makeWorld();

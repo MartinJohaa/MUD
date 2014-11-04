@@ -4,4 +4,7 @@ public class Key extends Items{
     public Key(){
         setSize(1);
     }
+    public String toString(){
+        return this.name;
+    }
 }

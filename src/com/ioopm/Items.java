@@ -7,4 +7,7 @@ class Items{
     public void setSize(int itemSize){
 	size = itemSize;
     }
+    public String toString(){
+        return "Error! ";
+    };
 }
