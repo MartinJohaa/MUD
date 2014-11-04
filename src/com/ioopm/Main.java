@@ -38,13 +38,13 @@ class Main
                 "Room 1209", "Archive", "Janitor's Hideout",
                 "Broken Elevator", "Update","Room 2245"
         };
-        for (int keysForUnlockedRooms; keysForUnlockedRooms > 0; keysForUnlockedRooms--){
+        for (int i = keysForUnlockedRooms; i > 0; i--){
             Key newkey = new Key();
             String tempRoom = unlockedRooms[randomizer.nextInt(9)];
             int tempIndex = Main.findIndex(tempRoom, name.getRoomList());
             world[tempIndex].addItem(newkey);
         }
-        for (int keysForLockedRooms; keysForLockedRooms > 0; keysForLockedRooms--){
+        for (int i = keysForLockedRooms; i > 0; i--){
             Key newkey = new Key();
             String tempRoom = lockedRooms[randomizer.nextInt(10)];
             int tempIndex = Main.findIndex(tempRoom, name.getRoomList());
@@ -106,6 +106,7 @@ class Main
     creator = new ReadRoomFile();
     creator.makeWorld();
     Erik.setCurrentLocation("FooBar");
+    placeKeys(creator.world, Erik);
     /*creator.world[0].roomInfo();
     creator.world[1].roomInfo();
     Erik.setCurrentLocation("Hallway 4");

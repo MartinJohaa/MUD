@@ -2,7 +2,7 @@ package com.ioopm;
 import java.lang.String;
 import java.util.ArrayList;
 
-public class Room{
+public class Room {
     /**
      * creating variables for the different elements of a room
      */
@@ -15,18 +15,19 @@ public class Room{
 
     /**
      * The constructor which creates a room-object
-     * @param name the name of the room
+     *
+     * @param name            the name of the room
      * @param northConnection the name of the room to the north, if there is one
-     * @param eastConnection -"- east -"-
+     * @param eastConnection  -"- east -"-
      * @param southConnection -"- south -"-
-     * @param westConnection -"- west -"-
-     * @param northLock information about whether the north door is locked or not
-     * @param eastLock -"- east -"-
-     * @param southLock -"- south -"-
-     * @param westLock -"- west -"-
+     * @param westConnection  -"- west -"-
+     * @param northLock       information about whether the north door is locked or not
+     * @param eastLock        -"- east -"-
+     * @param southLock       -"- south -"-
+     * @param westLock        -"- west -"-
      */
     public Room(String name, String northConnection, String eastConnection, String southConnection, String westConnection
-    , String northLock, String eastLock, String southLock, String westLock){
+            , String northLock, String eastLock, String southLock, String westLock) {
         this.name = name;
         north[0] = northConnection;
         east[0] = eastConnection;
@@ -39,8 +40,8 @@ public class Room{
     }
 
     // För att skriva ut all info om ett rum
-    public void roomInfo(){
-        System.out.printf("Roomname : %s \n", this.name );
+    public void roomInfo() {
+        System.out.printf("Roomname : %s \n", this.name);
         System.out.printf("Northdirection, room: %s, open = %s \n", this.north[0], this.north[1]);
         System.out.printf("Eastdirection, room: %s, open = %s \n", this.east[0], this.east[1]);
         System.out.printf("Southdirection, room: %s, open = %s \n", this.south[0], this.south[1]);
@@ -48,29 +49,39 @@ public class Room{
         System.out.printf("Items found in room: %s", getItems());
         System.out.print("\n");
     }
-    public boolean isOpen(String direction){
-        switch (direction){
+
+    public boolean isOpen(String direction) {
+        switch (direction) {
             case "North":
-                if (this.north[1].equals("True")){
+                if (this.north[1].equals("True")) {
                     return true;
-                }else{ return false;}
+                } else {
+                    return false;
+                }
             case "East":
-                if (this.east[1].equals("True")){
+                if (this.east[1].equals("True")) {
                     return true;
-                }else{ return false;}
+                } else {
+                    return false;
+                }
             case "South":
-                if (this.south[1].equals("True")){
+                if (this.south[1].equals("True")) {
                     return true;
-                }else{ return false;}
+                } else {
+                    return false;
+                }
             case "West":
-                if (this.west[1].equals("True")){
+                if (this.west[1].equals("True")) {
                     return true;
-                }else{ return false;}
+                } else {
+                    return false;
+                }
             default:
                 System.out.println("Valid options are: North, East, South, West!");
                 return false;
         }
     }
+
     public boolean validateConnection(String direction) {
         switch (direction) {
             case "North":
@@ -102,6 +113,7 @@ public class Room{
                 return false;
         }
     }
+
     public String getRoomNameInDirection(String direction) {
         switch (direction) {
             case "North":
@@ -117,16 +129,20 @@ public class Room{
                 return "FEL";
         }
     }
-    public void addItem(Items item){
+
+    public void addItem(Items item) {
         this.items.add(item);
     }
-    public String getItems(){
-        String result;
-        for (int i = 0; i < items.size(); i++)
-            if (i == (items.size()-1)) {
-                result += items[i];
-            }else{
-                result += (items[i] + ", ");
+
+    public String getItems() {
+        String result = "";
+        for (int i = 0; i < items.size(); i++) {
+            if (i == (items.size() - 1)) {
+                result += items.get(i);
+            } else {
+                result += (items.get(i) + ", ");
             }
+        }
+        return result;
     }
 }
