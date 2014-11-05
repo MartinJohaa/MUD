@@ -105,6 +105,8 @@ class Main
     // För att testa om ReadRoomFile lyckas göra sitt.
     creator = new ReadRoomFile();
     creator.makeWorld();
+    ReadRoomFile creatures = new ReadRoomFile();
+    creatures.makeCreatures();
     Erik.setCurrentLocation("FooBar");
     placeKeys(creator.world, Erik);
     /*creator.world[0].roomInfo();

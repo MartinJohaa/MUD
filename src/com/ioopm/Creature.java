@@ -1,17 +1,18 @@
 package com.ioopm;
 
-/**
- * Created by mj on 11/5/14.
- */
 public class Creature {
     private String name;
     private Room location;
 
-    public void setName(String name){
+    public Creature(String name, Room roomName){
         this.name = name;
+        this.location = roomName;
     }
-    public void setLocation(Room roomName){
+    public void changeLocation(Room roomName){
+        /*remove from current room*/
+        this.location.removeCreature(this);
         this.location = roomName;
         location.addCreature(this);
     }
+
 }

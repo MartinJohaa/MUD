@@ -153,4 +153,7 @@ public class Room {
     public void addCreature(Creature creature){
         this.creatures.add(creature);
     }
+    public void removeCreature(Creature creature){
+        creatures.remove(creature);
+    }
 }
