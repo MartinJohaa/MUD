@@ -1,0 +1,6 @@
+Det skrivna ordet;Hans Bok;1872;2
+The Art of Data Communication;Bucky Guy;2004;1
+You will C;Baba-K;1967;2
+Functional Programming in ML;John Davids;1944;2
+Jurassic Park;Steven Spielberg;1993;1
+|_0|_b00|<;Adil;2002;1

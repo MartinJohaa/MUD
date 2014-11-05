@@ -12,6 +12,7 @@ public class Room {
     private String[] south = new String[2];
     private String[] west = new String[2];
     private ArrayList<Items> items = new ArrayList<Items>();
+    private ArrayList<Creature> creatures = new ArrayList<Creature>();
 
     /**
      * The constructor which creates a room-object
@@ -147,5 +148,9 @@ public class Room {
             }
         }
         return result;
+    }
+
+    public void addCreature(Creature creature){
+        this.creatures.add(creature);
     }
 }
