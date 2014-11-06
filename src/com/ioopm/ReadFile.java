@@ -4,11 +4,12 @@ import java.io.*;
 import java.lang.System;
 import java.util.*;
 
-public class ReadRoomFile{
+public class ReadFile {
+    /****************************ROOMS********************************************/
     private Scanner rooms;
     // Lade till world variabel här ute så vi kommer åt den utifrån.
     public Room[] world;
-    public void openFile(){
+    public void openRoomFile(){
         try{
             rooms = new Scanner(new File("rooms.txt"));
         }catch(IOException e){
@@ -16,7 +17,7 @@ public class ReadRoomFile{
             System.out.println("File not found! check rooms.txt");
         }
     }
-    public Room[] readFile() {
+    public Room[] readRoomFile() {
         /**
          *  Creating an array which is filled with room-objects
          */
@@ -54,7 +55,7 @@ public class ReadRoomFile{
         }
         return world;
     }
-    public void closeFile(){
+    public void closeRoomFile(){
     rooms.close();
     }
 
@@ -62,11 +63,11 @@ public class ReadRoomFile{
      * this method creates the world in which the game is set
      */
     public void makeWorld(){
-        openFile();
-        this.world = readFile();
-        closeFile();
+        openRoomFile();
+        this.world = readRoomFile();
+        closeRoomFile();
     }
-
+    /****************************CREATURES****************************************/
     private Scanner creatureScanner;
     // Lade till world variabel här ute så vi kommer åt den utifrån.
     public Creature[] creatures;
@@ -115,5 +116,6 @@ public class ReadRoomFile{
         closeCreatureFile();
     }
 
+    /****************************BOOKS********************************************/
 
 }

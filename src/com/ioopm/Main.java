@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 class Main
 {
-    public static ReadRoomFile creator;
+    public static ReadFile creator;
     public static Random randomizer = new Random();
 
 
@@ -143,10 +143,10 @@ class Main
 	Erik.addFinishedCourse("Bokvetenskap 101");
 	Erik.addFinishedCourse("Datakomm. 301");
 	//Erik.printList();
-    // För att testa om ReadRoomFile lyckas göra sitt.
-    creator = new ReadRoomFile();
+    // För att testa om ReadFile lyckas göra sitt.
+    creator = new ReadFile();
     creator.makeWorld();
-    ReadRoomFile creatures = new ReadRoomFile();
+    ReadFile creatures = new ReadFile();
     creatures.makeCreatures();
     Erik.setCurrentLocation("FooBar");
     placeKeys(creator.world, Erik);
