@@ -10,4 +10,7 @@ class Items{
     public String toString(){
         return "Error! ";
     };
+    public String getName(){
+        return "Error";
+    };
 }

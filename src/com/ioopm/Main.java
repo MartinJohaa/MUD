@@ -97,10 +97,13 @@ class Main
                     printVariable = false;
                     break;
                 case "pickup":
-
-                    name.pickupItem();
-                    printVariable = false;
-                    break;
+                    Room location = name.getCurrentLocation();
+                    int itemIndex = location.findItemIndex(input2);
+                        if (itemIndex >= 0) {
+                            name.pickupItem(location.getItemAtIndex(itemIndex));
+                            printVariable = false;
+                            break;
+                        }
                 case "quit":
                     if (input2.equals("game")) {
                         gameOn = false;

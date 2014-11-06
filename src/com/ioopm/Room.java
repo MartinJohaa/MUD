@@ -49,7 +49,7 @@ public class Room {
         System.out.printf("The south door leads to %s, ", this.south[0]);
         System.out.printf("and finally in your western direction you see a door" +
                 " that will lead you to %s. \n", this.west[0]);
-        System.out.printf("Items found in room: %s", getItems());
+        System.out.printf("Items found in room: %s", printItems());
         System.out.print("\n");
     }
 
@@ -140,7 +140,24 @@ public class Room {
     public void removeItem(Items item){
         this.items.remove(item);
     }
-    public String getItems() {
+
+    public int findItemIndex(String itemName){
+        int i = 0;
+        for (Items a: items){
+            String aName = a.getName().toLowerCase();
+            if (aName.equals(itemName)){
+                return i;
+            }
+            i++;
+        }
+        System.out.println("Item not found in room. ");
+        return -1;
+    }
+
+    public Items getItemAtIndex(int i){
+        return items.get(i);
+    }
+    public String printItems() {
         String result = "";
         for (int i = 0; i < items.size(); i++) {
             Items tempItem = items.get(i);

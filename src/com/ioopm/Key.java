@@ -7,4 +7,8 @@ public class Key extends Items{
     public String toString(){
         return this.name;
     }
+
+    public String getName(){
+        return this.name;
+    }
 }

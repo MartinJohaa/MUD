@@ -13,7 +13,7 @@ public class Book extends Items {
     }
 
 
-    public String getTitle() {
+    public String getName() {
         return this.title;
     }
 
