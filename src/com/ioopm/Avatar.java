@@ -1,5 +1,6 @@
 package com.ioopm;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 class Avatar{
     private String[] roomList = {
@@ -14,6 +15,8 @@ class Avatar{
     private String name;
     private ArrayList<String> unfinishedCourses = new ArrayList<String>();
     private ArrayList<String> finishedCourses = new ArrayList<String>();
+    private ArrayList<Items> inventory = new ArrayList<>();
+    int availableInventorySpace = 10;
     private int HP = 60;
     public Avatar(String name){
         this.name = name;
@@ -51,5 +54,22 @@ class Avatar{
     }
     public String[] getRoomList(){
         return this.roomList;
+    }
+
+    public void pickupItem(Items itemName){
+        if ((availableInventorySpace - itemName.getSize()) >= 0){
+            currentLocation.removeItem(itemName);
+            this.inventory.add(itemName);
+            availableInventorySpace -= itemName.getSize();
+        }else{
+            System.out.println("Not enough room in inventory!!");
+        }
+    }
+    public void printInventory(){
+        System.out.println("INVENTORY");
+        System.out.println("*********");
+        for (int i = 0; i < inventory.size(); i++){
+            System.out.println(inventory.get(i).toString());
+        }
     }
 }

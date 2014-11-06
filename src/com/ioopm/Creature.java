@@ -11,7 +11,9 @@ public class Creature {
     public void changeLocation(Room roomName){
         /*remove from current room*/
         this.location.removeCreature(this);
+        /*Change to new location*/
         this.location = roomName;
+        /*Adds creature in the new room*/
         location.addCreature(this);
     }
 

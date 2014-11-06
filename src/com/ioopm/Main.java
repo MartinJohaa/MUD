@@ -56,39 +56,77 @@ class Main
      *
      * @param name
      */
-    public static void move(Avatar name){
-        System.out.println("Choose direction:");
-        Scanner option = new Scanner(System.in);
-        String choice = option.nextLine();
+    public static void move(Avatar name, String direction){
         Room location = name.getCurrentLocation();
-        if (choice.equals("North")||choice.equals("East")||choice.equals("South")||choice.equals("West")){
-            if (location.validateConnection(choice)) {
-                if (location.isOpen(choice)){
-                    name.setCurrentLocation(location.getRoomNameInDirection(choice));
+        if (direction.equals("north")||direction.equals("east")||direction.equals("south")||direction.equals("west")){
+            if (location.validateConnection(direction)) {
+                if (location.isOpen(direction)){
+                    name.setCurrentLocation(location.getRoomNameInDirection(direction));
 
                 }else{
                     System.out.println("Door is locked,You n33d k3y f0r 0p3n, bb!!");
                 }
             }else{
                 System.out.println("There is no door in that direction!");
-                move(name);
+                move(name, direction);
             }
         }else{
             System.out.println("Chosen direction is not valid! Valid directions are: North, East, South, West.");
-            move(name);
+            move(name, direction);
         }
     }
 
     public static void playGame(Avatar name){
         boolean gameOn = true;
+        boolean printVariable = true;
         while(gameOn) {
+            if (printVariable) {
+                name.printCurrentLocation();
+            }
+            System.out.println("Choose your action: ");
+            Scanner scannerInput = new Scanner(System.in);
+            String input1 = scannerInput.next().toLowerCase();
+            String input2 = scannerInput.next().toLowerCase();
+            switch(input1){
+                case "go":
+                    move(name, input2);
+                    printVariable = true;
+                    break;
+                case "talk":
+                    System.out.print("NIY - talk");
+                    printVariable = false;
+                    break;
+                case "pickup":
+
+                    name.pickupItem();
+                    printVariable = false;
+                    break;
+                case "quit":
+                    if (input2.equals("game")) {
+                        gameOn = false;
+                        break;
+                    }
+                    printVariable = true;
+                    break;
+                case "show":
+                    if (input2.equals("inventory")){
+                        name.printInventory();
+                        printVariable = false;
+                        break;
+                    }
+                default:
+                    System.out.println("Valid options are: Go (direction), Talk, Pick up (item)," +
+                            " Quit Game, Show Inventory.");
+                    printVariable = false;
+
+            /*
             name.printCurrentLocation();
             move(name);
             System.out.println("Continue your adventure? (Yes/No)");
             Scanner answerToTheUltimateQuestion = new Scanner(System.in);
             String answer = answerToTheUltimateQuestion.nextLine();
             if (answer.equals("No")||answer.equals("no")||answer.equals("NO")){
-                gameOn = false;
+                gameOn = false;*/
             }
         }
     }

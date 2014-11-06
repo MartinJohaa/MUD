@@ -55,25 +55,25 @@ public class Room {
 
     public boolean isOpen(String direction) {
         switch (direction) {
-            case "North":
+            case "north":
                 if (this.north[1].equals("True")) {
                     return true;
                 } else {
                     return false;
                 }
-            case "East":
+            case "east":
                 if (this.east[1].equals("True")) {
                     return true;
                 } else {
                     return false;
                 }
-            case "South":
+            case "south":
                 if (this.south[1].equals("True")) {
                     return true;
                 } else {
                     return false;
                 }
-            case "West":
+            case "west":
                 if (this.west[1].equals("True")) {
                     return true;
                 } else {
@@ -87,25 +87,25 @@ public class Room {
 
     public boolean validateConnection(String direction) {
         switch (direction) {
-            case "North":
+            case "north":
                 if (this.north[0].equals("X")) {
                     return false;
                 } else {
                     return true;
                 }
-            case "East":
+            case "east":
                 if (this.east[0].equals("X")) {
                     return false;
                 } else {
                     return true;
                 }
-            case "South":
+            case "south":
                 if (this.south[0].equals("X")) {
                     return false;
                 } else {
                     return true;
                 }
-            case "West":
+            case "west":
                 if (this.west[0].equals("X")) {
                     return false;
                 } else {
@@ -118,14 +118,14 @@ public class Room {
     }
 
     public String getRoomNameInDirection(String direction) {
-        switch (direction) {
-            case "North":
+        switch (direction.toLowerCase()) {
+            case "north":
                 return this.north[0];
-            case "East":
+            case "east":
                 return this.east[0];
-            case "South":
+            case "south":
                 return this.south[0];
-            case "West":
+            case "west":
                 return this.west[0];
             default:
                 System.out.println("Valid options are: North, East, South, West!");
@@ -137,6 +137,9 @@ public class Room {
         this.items.add(item);
     }
 
+    public void removeItem(Items item){
+        this.items.remove(item);
+    }
     public String getItems() {
         String result = "";
         for (int i = 0; i < items.size(); i++) {
