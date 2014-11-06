@@ -118,4 +118,39 @@ public class ReadFile {
 
     /****************************BOOKS********************************************/
 
+    private Scanner bookScan;
+    public Book[] booksInWorld;
+    public void openBookFile(){
+        try{
+            bookScan = new Scanner(new File("books.txt"));
+        }catch(IOException e){
+            e.printStackTrace();
+            System.out.println("File not found! check books.txt");
+        }
+    }
+
+    public Book[] readBookFile(){
+        booksInWorld = Book[6];
+        bookScan.useDelimiter(";");
+        int x = 0;
+        while (bookScan.hasNext()){
+            String title = bookScan.next();
+            String author = bookScan.next();
+            int yearOfPublishing = bookScan.nextInt();
+            int bookSize = bookScan.nextInt();
+            booksInWorld[x] = new Book(title, author, yearOfPublishing, bookSize);
+            x += 1;
+        }
+        return booksInWorld;
+    }
+
+    public void closeBookFile(){
+        bookScan.close();
+    }
+
+    public void makeBooks(){
+        openBookFile();
+        this.booksInWorld = readBookFile();
+        closeBookFile();
+    }
 }

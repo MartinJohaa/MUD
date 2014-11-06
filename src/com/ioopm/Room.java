@@ -47,7 +47,7 @@ public class Room {
         System.out.printf("If you turn your head to the right facing east " +
                 "you see another door leading to %s. \n", this.east[0]);
         System.out.printf("The south door leads to %s, ", this.south[0]);
-        System.out.printf("and finally in your western direction you see a door" +
+        System.out.printf("and finally in your western direction\nyou see a door" +
                 " that will lead you to %s. \n", this.west[0]);
         System.out.printf("Items found in room: %s", printItems());
         System.out.print("\n");

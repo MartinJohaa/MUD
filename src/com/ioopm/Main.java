@@ -95,8 +95,12 @@ class Main
             String input2 = scannerInput.next().toLowerCase();
             switch(input1){
                 case "go":
-                    move(name, input2);
                     printVariable = true;
+                    String loc = name.getCurrentLocation().toString();
+                    move(name, input2);
+                    if (loc.equals(name.getCurrentLocation().toString())){
+                        printVariable = false;
+                    }
                     break;
                 case "talk":
                     System.out.print("NIY - talk");
@@ -110,6 +114,8 @@ class Main
                             printVariable = false;
                             break;
                         }
+                        printVariable = false;
+                        break;
                 case "quit":
                     if (input2.equals("game")) {
                         gameOn = false;
