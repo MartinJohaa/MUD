@@ -1,6 +1,5 @@
 package com.ioopm;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 class Avatar{
     private String[] roomList = {
@@ -47,7 +46,7 @@ class Avatar{
     //public void finishCourse, hanterar metoder ovan och examinerar kurs
     public void setCurrentLocation(String roomname){
     int index = Main.findIndex(roomname, roomList);
-    this.currentLocation = Main.creator.world[index];
+    this.currentLocation = Main.worldCreator.world[index];
     }
     public void printCurrentLocation(){
     currentLocation.roomInfo();

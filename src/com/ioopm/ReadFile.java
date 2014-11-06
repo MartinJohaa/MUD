@@ -130,14 +130,16 @@ public class ReadFile {
     }
 
     public Book[] readBookFile(){
-        booksInWorld = Book[6];
+        booksInWorld = new Book[6];
         bookScan.useDelimiter(";");
         int x = 0;
         while (bookScan.hasNext()){
             String title = bookScan.next();
             String author = bookScan.next();
             int yearOfPublishing = bookScan.nextInt();
-            int bookSize = bookScan.nextInt();
+            String bookSizeString = bookScan.nextLine();
+            bookSizeString = bookSizeString.substring(1);
+            int bookSize = Integer.parseInt(bookSizeString);
             booksInWorld[x] = new Book(title, author, yearOfPublishing, bookSize);
             x += 1;
         }

@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 class Main
 {
-    public static ReadFile creator;
+    public static ReadFile worldCreator;
+    public static ReadFile bookCreator;
+    public static ReadFile creatureCreator;
     public static Random randomizer = new Random();
 
 
@@ -51,13 +53,12 @@ class Main
             world[tempIndex].addItem(newkey);
         }
     }
-    /*
-    public static void placeBooks(Room[] world, Avatar name){
-        for (int i = 0; i <= 6 ; i++)
-            String tempRoom = world[randomizer.nextInt(19)].toString();
-            int tempIndex = Main.findIndex()
+
+    public static void placeBooks(Room[] world, Book[] books){
+        for (int i = 0; i < 6 ; i++)
+            world[randomizer.nextInt(19)].addItem(books[i]);
     }
-    */
+
     /**
      *
      * @param name
@@ -156,18 +157,15 @@ class Main
 	Erik.addFinishedCourse("Datakomm. 301");
 	//Erik.printList();
     // För att testa om ReadFile lyckas göra sitt.
-    creator = new ReadFile();
-    creator.makeWorld();
+    worldCreator = new ReadFile();
+    worldCreator.makeWorld();
+    bookCreator = new ReadFile();
+    bookCreator.makeBooks();
     ReadFile creatures = new ReadFile();
     creatures.makeCreatures();
     Erik.setCurrentLocation("FooBar");
-    placeKeys(creator.world, Erik);
-    /*creator.world[0].roomInfo();
-    creator.world[1].roomInfo();
-    Erik.setCurrentLocation("Hallway 4");
-    Erik.printCurrentLocation();
-    Erik.setCurrentLocation("Room 1357");
-    Erik.printCurrentLocation();*/
+    placeKeys(worldCreator.world, Erik);
+    placeBooks(worldCreator.world, bookCreator.booksInWorld);
     playGame(Erik);
     }
 }
