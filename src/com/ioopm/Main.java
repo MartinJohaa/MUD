@@ -51,7 +51,13 @@ class Main
             world[tempIndex].addItem(newkey);
         }
     }
-
+    /*
+    public static void placeBooks(Room[] world, Avatar name){
+        for (int i = 0; i <= 6 ; i++)
+            String tempRoom = world[randomizer.nextInt(19)].toString();
+            int tempIndex = Main.findIndex()
+    }
+    */
     /**
      *
      * @param name
