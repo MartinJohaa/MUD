@@ -176,4 +176,8 @@ public class Room {
     public void removeCreature(Creature creature){
         creatures.remove(creature);
     }
+
+    public String toString(){
+        return this.name;
+    }
 }
