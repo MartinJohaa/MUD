@@ -133,19 +133,35 @@ public class Room {
         }
     }
 
+    public String[] getDirectionInfoArray(String direction) {
+        switch (direction) {
+            case "north":
+                return this.north;
+            case "east":
+                return this.east;
+            case "south":
+                return this.south;
+            case "west":
+                return this.west;
+            default:
+                String[] x = {"Hej"};
+                return x;
+        }
+    }
+
     public void addItem(Items item) {
         this.items.add(item);
     }
 
-    public void removeItem(Items item){
+    public void removeItem(Items item) {
         this.items.remove(item);
     }
 
-    public int findItemIndex(String itemName){
+    public int findItemIndex(String itemName) {
         int i = 0;
-        for (Items a: this.items){
+        for (Items a : this.items) {
             String aName = a.getName().toLowerCase();
-            if (aName.equals(itemName)){
+            if (aName.equals(itemName)) {
                 return i;
             }
             i++;
@@ -154,9 +170,10 @@ public class Room {
         return -1;
     }
 
-    public Items getItemAtIndex(int i){
+    public Items getItemAtIndex(int i) {
         return this.items.get(i);
     }
+
     public String printItems() {
         String result = "";
         for (int i = 0; i < this.items.size(); i++) {
@@ -170,14 +187,19 @@ public class Room {
         return result;
     }
 
-    public void addCreature(Creature creature){
+    public void addCreature(Creature creature) {
         this.creatures.add(creature);
     }
-    public void removeCreature(Creature creature){
+
+    public void removeCreature(Creature creature) {
         creatures.remove(creature);
     }
 
-    public String toString(){
+    public String toString() {
         return this.name;
+    }
+
+    public void unlockDoor(String[] direction) {
+        direction[1] = "True";
     }
 }

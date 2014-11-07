@@ -81,6 +81,16 @@ class Main
         }
     }
 
+    public static void unlockDoor(String direction, Avatar name){
+        Room originalLocation = name.getCurrentLocation();
+        originalLocation.unlockDoor(originalLocation.getDirectionInfoArray(direction));
+        String oppositeRoom = originalLocation.getRoomNameInDirection(direction);
+        name.setCurrentLocation(oppositeRoom);
+        Room oppositeLocation = name.getCurrentLocation();
+        oppositeLocation.unlockDoor(oppositeLocation.getDirectionInfoArray(direction));
+        name.setCurrentLocation(originalLocation.toString());
+    }
+
     public static void playGame(Avatar name){
         boolean gameOn = true;
         boolean printVariable = true;
@@ -135,19 +145,35 @@ class Main
                         printVariable = false;
                         break;
                     }
+                case "unlock":
+                    if (input2.equals("door")){
+                        System.out.println("Choose direction:");
+                        Scanner input3 = new Scanner(System.in);
+                        String doorDirection = input3.next();
+                        switch (doorDirection) {
+                            case "north":
+                                /* avatar.checkKey */
+                                unlockDoor("north", name);
+                                break;
+                            case "east":
+                                /* avatar.checkKey */
+                                unlockDoor("east", name);
+                                break;
+                            case "south":
+                                /* avatar.checkKey */
+                                unlockDoor("south", name);
+                                break;
+                            case "west":
+                                /* avatar.checkKey */
+                                unlockDoor("west", name);
+                                break;
+                        }
+                    }
+                    break;
                 default:
                     System.out.println("Valid options are: Go (direction), Talk, Pick up (item)," +
-                            " Quit Game, Show Inventory.");
+                            " Quit Game, Show Inventory, Unlock Door.");
                     printVariable = false;
-
-            /*
-            name.printCurrentLocation();
-            move(name);
-            System.out.println("Continue your adventure? (Yes/No)");
-            Scanner answerToTheUltimateQuestion = new Scanner(System.in);
-            String answer = answerToTheUltimateQuestion.nextLine();
-            if (answer.equals("No")||answer.equals("no")||answer.equals("NO")){
-                gameOn = false;*/
             }
         }
     }
@@ -160,8 +186,6 @@ class Main
 	System.out.printf("Hi, %s! Welcome to P0ll4x!!\n", Erik.getName());
 	Erik.addFinishedCourse("Bokvetenskap 101");
 	Erik.addFinishedCourse("Datakomm. 301");
-	//Erik.printList();
-    // För att testa om ReadFile lyckas göra sitt.
     worldCreator = new ReadFile();
     worldCreator.makeWorld();
     bookCreator = new ReadFile();
