@@ -6,7 +6,7 @@ public class Book extends Items {
     private String author;
     private int yearOfPublishing;
     public Book (String title, String author, int yearOfPublishing, int size){
-        super.setSize(size);
+        super(size);
         this.title = title;
         this.author = author;
     }

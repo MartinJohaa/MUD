@@ -1,11 +1,11 @@
 package com.ioopm;
 class Items{
     private int size;
+    public Items(int size){
+        this.size = size;
+    }
     public int getSize(){
 	return size;
-    }
-    public void setSize(int itemSize){
-	size = itemSize;
     }
     public String toString(){
         return "Error! ";
