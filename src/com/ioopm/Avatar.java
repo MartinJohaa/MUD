@@ -56,10 +56,11 @@ class Avatar{
     }
 
     public void pickupItem(Items itemName){
-        if ((availableInventorySpace - itemName.getSize()) >= 0){
+        if ((availableInventorySpace - (itemName.getSize())) >= 0){
             currentLocation.removeItem(itemName);
             this.inventory.add(itemName);
-            availableInventorySpace -= itemName.getSize();
+            availableInventorySpace -= (itemName.getSize());
+            System.out.printf("%d",availableInventorySpace);
         }else{
             System.out.println("Not enough room in inventory!!");
         }

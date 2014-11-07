@@ -137,15 +137,17 @@ class Main
                     System.out.print("NIY - talk");
                     printVariable = false;
                     break;
-                case "pickup":
-                    Room location = name.getCurrentLocation();
-                    if (input2.equals("book")) {
-                        System.out.println("Please enter the name of the book you want to pick up:");
-                        Scanner bookName = new Scanner(System.in);
-                        input2 = bookName.nextLine().toLowerCase();
-                        input2 = input2.substring(1,(input2.length()-1));
-                    }
-                    int itemIndex = location.findItemIndex(input2);
+                case "pick":
+                    String itemInput = scannerInput.next();
+                    if (input2.equals("up")) {
+                        Room location = name.getCurrentLocation();
+                        if (itemInput.equals("book")) {
+                            System.out.println("Please enter the name of the book you want to pick up:");
+                            Scanner bookName = new Scanner(System.in);
+                            itemInput = bookName.nextLine().toLowerCase();
+                            itemInput = itemInput.substring(1, (itemInput.length() - 1));
+                        }
+                        int itemIndex = location.findItemIndex(itemInput);
                         if (itemIndex >= 0) {
                             name.pickupItem(location.getItemAtIndex(itemIndex));
                             System.out.println("Item picked up successfully!");
@@ -154,6 +156,7 @@ class Main
                         }
                         printVariable = false;
                         break;
+                    }
                 case "quit":
                     if (input2.equals("game")) {
                         System.out.println("Safe travels, hope to see you soon again!");
@@ -185,6 +188,7 @@ class Main
                             case "east":
                                 if (name.checkForKeyAndRemove()) {
                                     unlockDoor("east", name);
+                                    System.out.println("[Sound of door being unlocked]");
                                     break;
                                 }
                                 System.out.println("You have no key in your inventory!");
@@ -192,6 +196,7 @@ class Main
                             case "south":
                                 if (name.checkForKeyAndRemove()) {
                                     unlockDoor("south", name);
+                                    System.out.println("[Sound of door being unlocked]");
                                     break;
                                 }
                                 System.out.println("You have no key in your inventory!");
@@ -199,11 +204,13 @@ class Main
                             case "west":
                                 if (name.checkForKeyAndRemove()) {
                                     unlockDoor("west", name);
+                                    System.out.println("[Sound of door being unlocked]");
                                     break;
                                 }
                                 System.out.println("You have no key in your inventory!");
                                 break;
                         }
+                        printVariable = false;
                     }
                     break;
                 default:
