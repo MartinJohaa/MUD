@@ -143,7 +143,7 @@ public class Room {
 
     public int findItemIndex(String itemName){
         int i = 0;
-        for (Items a: items){
+        for (Items a: this.items){
             String aName = a.getName().toLowerCase();
             if (aName.equals(itemName)){
                 return i;
@@ -155,13 +155,13 @@ public class Room {
     }
 
     public Items getItemAtIndex(int i){
-        return items.get(i);
+        return this.items.get(i);
     }
     public String printItems() {
         String result = "";
-        for (int i = 0; i < items.size(); i++) {
-            Items tempItem = items.get(i);
-            if (i == (items.size() - 1)) {
+        for (int i = 0; i < this.items.size(); i++) {
+            Items tempItem = this.items.get(i);
+            if (i == (this.items.size() - 1)) {
                 result += tempItem.toString();
             } else {
                 result += (tempItem.toString() + ", ");

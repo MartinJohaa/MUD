@@ -75,11 +75,9 @@ class Main
                 }
             }else{
                 System.out.println("There is no door in that direction!");
-                move(name, direction);
             }
         }else{
             System.out.println("Chosen direction is not valid! Valid directions are: North, East, South, West.");
-            move(name, direction);
         }
     }
 
@@ -109,6 +107,12 @@ class Main
                     break;
                 case "pickup":
                     Room location = name.getCurrentLocation();
+                    if (input2.equals("book")) {
+                        System.out.println("Please enter the name of the book you want to pick up:");
+                        Scanner bookName = new Scanner(System.in);
+                        input2 = bookName.nextLine().toLowerCase();
+                        input2 = input2.substring(1,(input2.length()-1));
+                    }
                     int itemIndex = location.findItemIndex(input2);
                         if (itemIndex >= 0) {
                             name.pickupItem(location.getItemAtIndex(itemIndex));
@@ -119,6 +123,7 @@ class Main
                         break;
                 case "quit":
                     if (input2.equals("game")) {
+                        System.out.println("Safe travels, hope to see you soon again!");
                         gameOn = false;
                         break;
                     }
