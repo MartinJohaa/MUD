@@ -148,6 +148,7 @@ class Main
                     int itemIndex = location.findItemIndex(input2);
                         if (itemIndex >= 0) {
                             name.pickupItem(location.getItemAtIndex(itemIndex));
+                            System.out.println("Item picked up successfully!");
                             printVariable = false;
                             break;
                         }

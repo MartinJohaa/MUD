@@ -21,5 +21,4 @@ public class Creature {
         /*Adds creature in the new room*/
         location.addCreature(this);
     }
-
 }

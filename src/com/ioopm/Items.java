@@ -11,6 +11,6 @@ class Items{
         return "Error! ";
     };
     public String getName(){
-        return "Error";
+        return "Error! ";
     };
 }
