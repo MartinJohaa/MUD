@@ -82,12 +82,34 @@ class Main
     }
 
     public static void unlockDoor(String direction, Avatar name){
+        String oppositeDirection;
+        switch (direction){
+            case "north":
+                oppositeDirection = "south";
+                break;
+            case "east":
+                oppositeDirection = "west";
+                break;
+            case "south":
+                oppositeDirection = "north";
+                break;
+            default:
+                oppositeDirection = "east";
+                break;
+        }
+        /*Sets originalLocation to the currentLocation.*/
         Room originalLocation = name.getCurrentLocation();
+        /*Unlocks the door in the currentLocation in desired direction.*/
         originalLocation.unlockDoor(originalLocation.getDirectionInfoArray(direction));
+        /*Sets oppositeRoom to the name of the room on the other side of the unlocked door.*/
         String oppositeRoom = originalLocation.getRoomNameInDirection(direction);
+        /*Change the location to the room on the other side of the unlocked door */
         name.setCurrentLocation(oppositeRoom);
+        /*Sets oppositeLocation to the new location*/
         Room oppositeLocation = name.getCurrentLocation();
-        oppositeLocation.unlockDoor(oppositeLocation.getDirectionInfoArray(direction));
+        /*Unlocks the "same" door from the new location*/
+        oppositeLocation.unlockDoor(oppositeLocation.getDirectionInfoArray(oppositeDirection));
+        /*Change the location back to the originalLocation*/
         name.setCurrentLocation(originalLocation.toString());
     }
 
@@ -152,20 +174,33 @@ class Main
                         String doorDirection = input3.next();
                         switch (doorDirection) {
                             case "north":
-                                /* avatar.checkKey */
-                                unlockDoor("north", name);
+                                if (name.checkForKeyAndRemove()) {
+                                    unlockDoor("north", name);
+                                    System.out.println("[Sound of door being unlocked]");
+                                    break;
+                                }
+                                System.out.println("You have no key in your inventory!");
                                 break;
                             case "east":
-                                /* avatar.checkKey */
-                                unlockDoor("east", name);
+                                if (name.checkForKeyAndRemove()) {
+                                    unlockDoor("east", name);
+                                    break;
+                                }
+                                System.out.println("You have no key in your inventory!");
                                 break;
                             case "south":
-                                /* avatar.checkKey */
-                                unlockDoor("south", name);
+                                if (name.checkForKeyAndRemove()) {
+                                    unlockDoor("south", name);
+                                    break;
+                                }
+                                System.out.println("You have no key in your inventory!");
                                 break;
                             case "west":
-                                /* avatar.checkKey */
-                                unlockDoor("west", name);
+                                if (name.checkForKeyAndRemove()) {
+                                    unlockDoor("west", name);
+                                    break;
+                                }
+                                System.out.println("You have no key in your inventory!");
                                 break;
                         }
                     }
