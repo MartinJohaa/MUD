@@ -194,21 +194,26 @@ public class ReadFile {
         courseList = new Course[6];
         courseScan.useDelimiter(";");
         int x = 0;
+        while(courseScan.hasNext()){
+            String courseName = courseScan.next();
+            String stringCourseLiterature = courseScan.next();
+            String stringCourseHP = courseScan.nextLine();
+            stringCourseHP = stringCourseHP.substring(1, stringCourseHP.length());
+            System.out.println(stringCourseHP);
+            int courseHP = Integer.parseInt(stringCourseHP);
+            Book courseLiterature = Main.bookCreator.booksInWorld[1];
+            for (int i = 0; i < 6; i++) {
+                if (stringCourseLiterature.equals(Main.bookCreator.booksInWorld[i])) {
+                    courseLiterature = Main.bookCreator.booksInWorld[i];
+                }
+            }
+            courseList[x] = new Course(courseName, courseLiterature, courseHP);
+        }
         return courseList;
     }
 
     public void closeCourseFile() {
         courseScan.close();
-    }
-
-    public String[] stringCourseList(){
-        int i = 0;
-        String[] stringCourseList = new String[6];
-        for (Course a:courseList){
-            stringCourseList[i] = a.toString();
-            i++;
-        }
-        return stringCourseList;
     }
 
     public void makeCourses() {

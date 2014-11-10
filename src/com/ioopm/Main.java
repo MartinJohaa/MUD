@@ -30,6 +30,15 @@ class Main
         return -1;
     }
 
+    public static int findObjectIndex(String string, Object[] array){
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].toString().equals(string)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public static void placeKeys(Room[] world, Avatar name){
         int keysForUnlockedRooms = 4;
         int keysForLockedRooms = 8;
@@ -274,6 +283,8 @@ class Main
     bookCreator.makeBooks();
     creatureCreator = new ReadFile();
     creatureCreator.makeCreatures();
+    courseCreator = new ReadFile();
+    courseCreator.makeCourses();
     playerAvatar.setCurrentLocation("FooBar");
     placeKeys(worldCreator.world, playerAvatar);
     placeBooks(worldCreator.world, bookCreator.booksInWorld);
