@@ -123,9 +123,9 @@ class Main
             System.out.println("Choose your action: ");
             Scanner scannerInput = new Scanner(System.in);
             String input1 = scannerInput.next().toLowerCase();
-            String input2 = scannerInput.next().toLowerCase();
             switch(input1){
                 case "go":
+                    String input2 = scannerInput.next().toLowerCase();
                     printVariable = true;
                     String loc = name.getCurrentLocation().toString();
                     move(name, input2);
@@ -134,10 +134,11 @@ class Main
                     }
                     break;
                 case "talk":
-                    System.out.print("NIY - talk");
+                    System.out.println("NIY - talk");
                     printVariable = false;
                     break;
                 case "pick":
+                    input2 = scannerInput.next().toLowerCase();
                     String itemInput = scannerInput.next();
                     if (input2.equals("up")) {
                         Room location = name.getCurrentLocation();
@@ -158,6 +159,7 @@ class Main
                         break;
                     }
                 case "drop":
+                    input2 = scannerInput.next().toLowerCase();
                     Room location = name.getCurrentLocation();
                     if (input2.equals("key")) {
                         if (name.checkForKeyAndRemove()) {
@@ -187,20 +189,16 @@ class Main
                     break;
 
                 case "quit":
-                    if (input2.equals("game")) {
-                        System.out.println("Safe travels, hope to see you soon again!");
-                        gameOn = false;
-                        break;
-                    }
-                    printVariable = true;
+                    System.out.println("Safe travels, hope to see you soon again!");
+                    gameOn = false;
                     break;
-                case "show":
-                    if (input2.equals("inventory")){
-                        name.printInventory();
-                        printVariable = false;
-                        break;
-                    }
+                case "inventory":
+                    name.printInventory();
+                    printVariable = false;
+                    break;
+
                 case "unlock":
+                    input2 = scannerInput.next().toLowerCase();
                     if (input2.equals("door")){
                         System.out.println("Choose direction:");
                         Scanner input3 = new Scanner(System.in);
@@ -243,8 +241,8 @@ class Main
                     }
                     break;
                 default:
-                    System.out.println("Valid options are: Go (direction), Talk, Pick up (item)," +
-                            " Quit Game, Show Inventory, Unlock Door.");
+                    System.out.println("Valid options are: Go (Direction), Talk, Pick Up (Item)," +
+                            " Drop Key/Book, Inventory, Unlock Door, Quit");
                     printVariable = false;
             }
         }
@@ -256,8 +254,6 @@ class Main
 	String namn1 = name.nextLine();
     Avatar Erik = new Avatar(namn1);
 	System.out.printf("Hi, %s! Welcome to P0ll4x!!\n", Erik.getName());
-	Erik.addFinishedCourse("Bokvetenskap 101");
-	Erik.addFinishedCourse("Datakomm. 301");
     worldCreator = new ReadFile();
     worldCreator.makeWorld();
     bookCreator = new ReadFile();

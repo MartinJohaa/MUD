@@ -4,11 +4,6 @@ public class Creature {
     private String name;
     private Room location;
 
-    public Creature(Room location){
-        this.name = "Urban";
-        this.location = location;
-    }
-
     public Creature(String name, Room roomName){
         this.name = name;
         this.location = roomName;
