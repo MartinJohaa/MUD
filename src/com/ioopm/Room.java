@@ -49,8 +49,8 @@ public class Room {
         System.out.printf("The south door leads to %s, ", this.south[0]);
         System.out.printf("and finally in your western direction\nyou see a door" +
                 " that will lead you to %s. \n", this.west[0]);
-        System.out.printf("Items found in room: %s", printItems());
-        System.out.print("\n");
+        System.out.printf("Items found in room: %s\n", printItems());
+        System.out.printf("Creatures in room: %s\n", printCreatures());
     }
 
     public boolean isOpen(String direction) {
@@ -193,6 +193,19 @@ public class Room {
 
     public void removeCreature(Creature creature) {
         creatures.remove(creature);
+    }
+
+    public String printCreatures(){
+        String result = "";
+        for (int i = 0; i < this.creatures.size(); i++) {
+            Creature tempItem = this.creatures.get(i);
+            if (i == (this.creatures.size() - 1)) {
+                result += tempItem.toString();
+            } else {
+                result += (tempItem.toString() + ", ");
+            }
+        }
+        return result;
     }
 
     public String toString() {

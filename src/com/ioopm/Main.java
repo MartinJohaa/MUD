@@ -8,6 +8,7 @@ class Main
     public static ReadFile bookCreator;
     public static ReadFile creatureCreator;
     public static Random randomizer = new Random();
+    public static Avatar playerAvatar;
 
 
     /**
@@ -17,14 +18,13 @@ class Main
      * @return index of string in array
      */
     public static int findIndex(String string, String[] array){
-        for (int i = 0; i <= 18; i++){
-            if (array[i].equals(string)){
+        for (int i = 0; i <= 18; i++) {
+            if (array[i].equals(string)) {
                 return i;
             }
         }
         return -1;
     }
-
 
     public static void placeKeys(Room[] world, Avatar name){
         int keysForUnlockedRooms = 4;
@@ -252,17 +252,17 @@ class Main
     System.out.println("Enter player name: ");
 	Scanner name = new Scanner(System.in);
 	String namn1 = name.nextLine();
-    Avatar Erik = new Avatar(namn1);
-	System.out.printf("Hi, %s! Welcome to P0ll4x!!\n", Erik.getName());
+    playerAvatar = new Avatar(namn1);
+	System.out.printf("Hi, %s! Welcome to P0ll4x!!\n", playerAvatar.getName());
     worldCreator = new ReadFile();
     worldCreator.makeWorld();
     bookCreator = new ReadFile();
     bookCreator.makeBooks();
-    ReadFile creatures = new ReadFile();
-    creatures.makeCreatures();
-    Erik.setCurrentLocation("FooBar");
-    placeKeys(worldCreator.world, Erik);
+    creatureCreator = new ReadFile();
+    creatureCreator.makeCreatures();
+    playerAvatar.setCurrentLocation("FooBar");
+    placeKeys(worldCreator.world, playerAvatar);
     placeBooks(worldCreator.world, bookCreator.booksInWorld);
-    playGame(Erik);
+    playGame(playerAvatar);
     }
 }

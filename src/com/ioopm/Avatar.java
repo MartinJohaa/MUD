@@ -51,6 +51,7 @@ class Avatar{
     public void printCurrentLocation(){
     currentLocation.roomInfo();
     }
+
     public String[] getRoomList(){
         return this.roomList;
     }
@@ -60,7 +61,6 @@ class Avatar{
             currentLocation.removeItem(itemName);
             this.inventory.add(itemName);
             availableInventorySpace -= (itemName.getSize());
-            System.out.printf("%d",availableInventorySpace);
         }else{
             System.out.println("Not enough room in inventory!!");
         }

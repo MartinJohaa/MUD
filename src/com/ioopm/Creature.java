@@ -4,9 +4,15 @@ public class Creature {
     private String name;
     private Room location;
 
-    public Creature(String name, Room roomName){
+    public Creature(String name, String roomName){
         this.name = name;
-        this.location = roomName;
+        Room[] rooms = Main.worldCreator.world;
+        String[] stringArrayOfRooms = Main.playerAvatar.getRoomList();
+        int roomIndex = Main.findIndex(roomName, stringArrayOfRooms);
+        this.location = rooms[roomIndex];
+        this.location.addCreature(this);
+
+
     }
     public void changeLocation(Room roomName){
         /*remove from current room*/
@@ -15,5 +21,9 @@ public class Creature {
         this.location = roomName;
         /*Adds creature in the new room*/
         location.addCreature(this);
+    }
+
+    public String toString(){
+        return this.name;
     }
 }

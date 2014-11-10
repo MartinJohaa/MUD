@@ -71,19 +71,20 @@ public class ReadFile {
     private Scanner creatureScanner;
     // Lade till world variabel här ute så vi kommer åt den utifrån.
     public Creature[] creatures;
-    public void openCreatureFile(){
-        try{
+    public void openCreatureFile() {
+        try {
             creatureScanner = new Scanner(new File("creatures.txt"));
-        }catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
             System.out.println("File not found! check creatures.txt");
         }
     }
-    public Creature[] readCreatureFile() {
+
+    public Creature[] readCreatureFile(){
         /**
          *  Creating an array which is filled with creature-objects
          */
-        creatures = new Creature[1];
+        creatures = new Creature[2];
         /**
          *  Separates the segments at "; " instead of just a blankspace
          */
@@ -98,10 +99,14 @@ public class ReadFile {
              * to variables
              */
             String name = creatureScanner.next();
-            if (creatureScanner.next().equals("Teacher")){
-                /*creatures[x] = new Teacher(name);*/
-            }else if (creatureScanner.next().equals("Student")){
-                /*creatures[x] = new Student(name);*/
+            String room = creatureScanner.next();
+            String kind = creatureScanner.nextLine();
+            kind = kind.substring(1, kind.length());
+            if (kind.equals("Student")){
+                creatures[x] = new Student(name, room);
+            }else if (kind.equals("Teacher")){
+                System.out.println("Inne i if-sats");
+                creatures[x] = new Teacher(name, room);
             }
             x += 1;
         }
