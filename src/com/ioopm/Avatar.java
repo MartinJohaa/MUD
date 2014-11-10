@@ -65,6 +65,17 @@ class Avatar{
             System.out.println("Not enough room in inventory!!");
         }
     }
+
+    public void dropItem(Items itemName){
+        this.inventory.remove(itemName);
+        currentLocation.addItem(itemName);
+        this.availableInventorySpace += (itemName.getSize());
+    }
+
+    public Items getItemAtIndex(int index){
+        return (this.inventory.get(index));
+    }
+
     public void printInventory(){
         System.out.println("INVENTORY");
         System.out.println("*********");
@@ -76,9 +87,24 @@ class Avatar{
         for (int i = 0; i < this.inventory.size(); i++){
             if (this.inventory.get(i).toString().equals("Key")){
                 this.inventory.remove(i);
+                this.availableInventorySpace += 1;
                 return true;
             }
         }
         return false;
+    }
+
+
+    public int findItemIndex(String itemName) {
+        int i = 0;
+        for (Items a : this.inventory) {
+            String aName = a.getName().toLowerCase();
+            if (aName.equals(itemName)) {
+                return i;
+            }
+            i++;
+        }
+        System.out.println("Item not found in inventory. ");
+        return -1;
     }
 }

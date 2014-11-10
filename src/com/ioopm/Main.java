@@ -157,6 +157,35 @@ class Main
                         printVariable = false;
                         break;
                     }
+                case "drop":
+                    Room location = name.getCurrentLocation();
+                    if (input2.equals("key")) {
+                        if (name.checkForKeyAndRemove()) {
+                            location.addItem(new Key());
+                            System.out.println("Key dropped successfully!");
+                        } else {
+                            System.out.println("Item not found in inventory!");
+                        }
+                    }
+                    if (input2.equals("book")) {
+                        System.out.println("Please enter the name of the book you want to drop:");
+                        Scanner bookName = new Scanner(System.in);
+                        itemInput = bookName.nextLine().toLowerCase();
+                        itemInput = itemInput.substring(1, (itemInput.length() - 1));
+                        int itemIndex = name.findItemIndex(itemInput);
+                        if (itemIndex >= 0) {
+                            Items tempBook = name.getItemAtIndex(itemIndex);
+                            name.dropItem(tempBook);
+                            System.out.println("Item dropped successfully!");
+                            printVariable = false;
+                            break;
+                        }
+                        printVariable = false;
+                        break;
+                    }
+                    printVariable = false;
+                    break;
+
                 case "quit":
                     if (input2.equals("game")) {
                         System.out.println("Safe travels, hope to see you soon again!");
