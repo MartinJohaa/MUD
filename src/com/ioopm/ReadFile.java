@@ -109,14 +109,12 @@ public class ReadFile {
              */
             String name = creatureScanner.next();
             String room = creatureScanner.next();
-            String kind = creatureScanner.next();
-            String course = creatureScanner.nextLine();
-            course = course.substring(1, course.length());
-            System.out.println(name+"\n"+room+"\n"+kind+"\n"+course);
+            String kind = creatureScanner.nextLine();
+            kind = kind.substring(1, kind.length());
             if (kind.equals("Student")) {
-                creatures[x] = new Student(name, room, course);
+                creatures[x] = new Student(name, room);
             } else if (kind.equals("Teacher")) {
-                creatures[x] = new Teacher(name, room, course);
+                creatures[x] = new Teacher(name, room);
             }
             x += 1;
         }
@@ -196,31 +194,6 @@ public class ReadFile {
         courseList = new Course[6];
         courseScan.useDelimiter(";");
         int x = 0;
-        Creature[] creatureList = Main.creatureCreator.creatures;
-        String[] tutorStringList = new String[6];
-        for (int i = 0; i < 6;i++){
-            tutorStringList[i] = creatureList[i].toString();
-        }
-        Book[] bookList = Main.bookCreator.booksInWorld;
-        String[] literatureList = new String[6];
-        for (int i = 0; i < 6;i++){
-            literatureList[i] = bookList[i].toString();
-        }
-        /* DETTA ÄR FULT SOM FAN, FIXA!*/
-        while (courseScan.hasNext()) {
-            String name = courseScan.next();
-            String stringLiterature = courseScan.next();
-            int bookIndex = Main.findIndex(stringLiterature, literatureList);
-            Book literature = bookList[bookIndex];
-            String stringTutor = courseScan.next();
-            int tutorIndex = Main.findIndex(stringTutor, tutorStringList);
-            Creature tutor = creatureList[tutorIndex];
-            String stringHP = courseScan.nextLine();
-            stringHP = stringHP.substring(1);
-            int HP = Integer.parseInt(stringHP);
-            courseList[x] = new Course(name, literature, tutor, HP);
-            x += 1;
-        }
         return courseList;
     }
 

@@ -82,6 +82,7 @@ class Avatar{
         for (int i = 0; i < inventory.size(); i++){
             System.out.println(inventory.get(i).toString());
         }
+        System.out.println("*********");
     }
     public boolean checkForKeyAndRemove(){
         for (int i = 0; i < this.inventory.size(); i++){
