@@ -1,2 +1,10 @@
-Sharky Puppy;FooBar;Teacher
-Martin Johansson;FooBar;Teacher
+Sharky Puppy;FooBar;Teacher;PKD
+A;Skrubben;Teacher;Bokvetenskap 101
+B;Room 1211;Teacher;Datakommunikation 301;
+C;Room 1209;Teacher;DinosaurieLära
+D;Room 1210;Teacher;IOOPM
+E;Room 1211; Teacher;AsciiArt
+Martin Johansson;FooBar;Student;IOOPM
+Erik Englund;FooBar;Student;IOOPM
+
+

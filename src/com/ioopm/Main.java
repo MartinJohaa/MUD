@@ -7,6 +7,7 @@ class Main
     public static ReadFile worldCreator;
     public static ReadFile bookCreator;
     public static ReadFile creatureCreator;
+    public static ReadFile courseCreator;
     public static Random randomizer = new Random();
     public static Avatar playerAvatar;
 
@@ -18,8 +19,19 @@ class Main
      * @return index of string in array
      */
     public static int findIndex(String string, String[] array){
-        for (int i = 0; i <= 18; i++) {
+        for (int i = 0; i < array.length; i++) {
             if (array[i].equals(string)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static int findObjectIndex(String string, Object[] array){
+        System.out.println("fooooore");
+        for (int i = 0; i < 6; i++) {
+            System.out.println("hehe");
+            if (array[i].toString().equals(string)) {
                 return i;
             }
         }
@@ -258,6 +270,8 @@ class Main
     worldCreator.makeWorld();
     bookCreator = new ReadFile();
     bookCreator.makeBooks();
+    courseCreator = new ReadFile();
+    courseCreator.makeCourses();
     creatureCreator = new ReadFile();
     creatureCreator.makeCreatures();
     playerAvatar.setCurrentLocation("FooBar");

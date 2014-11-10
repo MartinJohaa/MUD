@@ -2,5 +2,5 @@ Bokvetenskap 101;Det skrivna ordet;5
 Datakommunikation 301;The Art of Data Communication;10
 IOOPM;You will C;20
 PKD;Functional Programming in ML;15
-DinosaurieLära;Jurassic Park;25
+Dinosaurie Lära;Jurassic Park;25
 AsciiArt;|_0|_b00|<;15
