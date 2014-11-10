@@ -32,18 +32,12 @@ class Avatar{
     public void addUnfinishedCourse(String course){
 	unfinishedCourses.add(course);
     }
+    public int getHP(){
+        return this.HP;
+    }
     public void updateHP(int points){
 	HP += points;
     }
-    /*public void printList(){
-	int length = finishedCourses.size();
-	System.out.print("You have completed the following courses: ");
-	for (int i = 0;i<(length-1);i++){
-	    System.out.printf("%s, ", finishedCourses.get(i));
-	}
-	System.out.printf("%s\n", finishedCourses.get(length-1));
-    }*/
-    //public void finishCourse, hanterar metoder ovan och examinerar kurs
     public void setCurrentLocation(String roomname){
     int index = Main.findIndex(roomname, roomList);
     this.currentLocation = Main.worldCreator.world[index];
@@ -61,6 +55,7 @@ class Avatar{
             currentLocation.removeItem(itemName);
             this.inventory.add(itemName);
             availableInventorySpace -= (itemName.getSize());
+            System.out.println("Item picked up successfully!");
         }else{
             System.out.println("Not enough room in inventory!!");
         }
@@ -94,7 +89,6 @@ class Avatar{
         }
         return false;
     }
-
 
     public int findItemIndex(String itemName) {
         int i = 0;

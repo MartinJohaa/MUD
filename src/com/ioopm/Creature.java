@@ -4,6 +4,11 @@ public class Creature {
     private String name;
     private Room location;
 
+    public Creature(Room location){
+        this.name = "The Almighty Sphinx of Eternal Life and Crazy Powers";
+        this.location = location;
+    }
+
     public Creature(String name, String roomName){
         this.name = name;
         Room[] rooms = Main.worldCreator.world;

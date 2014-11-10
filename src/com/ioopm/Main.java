@@ -11,6 +11,9 @@ class Main
     public static Random randomizer = new Random();
     public static Avatar playerAvatar;
 
+    public static int x = randomizer.nextInt(19);
+
+
 
     /**
      * method to find index of a specific string in an array
@@ -114,7 +117,7 @@ class Main
         name.setCurrentLocation(originalLocation.toString());
     }
 
-    public static void playGame(Avatar name){
+    public static void playGame(Avatar name, Sphinx sphinx){
         boolean gameOn = true;
         boolean printVariable = true;
         while(gameOn) {
@@ -135,13 +138,16 @@ class Main
                     }
                     break;
                 case "talk":
-                    System.out.println("NIY - talk");
+                    input2 = scannerInput.next().toLowerCase();
+                    if(input2.equals("sphinx")){
+                        sphinx.communicate();
+                    }
                     printVariable = false;
                     break;
                 case "pick":
                     input2 = scannerInput.next().toLowerCase();
                     String itemInput = scannerInput.next();
-                    if (input2.equals("up")) {
+                    if (input2.equals("up")){
                         Room location = name.getCurrentLocation();
                         if (itemInput.equals("book")) {
                             System.out.println("Please enter the name of the book you want to pick up:");
@@ -152,7 +158,6 @@ class Main
                         int itemIndex = location.findItemIndex(itemInput);
                         if (itemIndex >= 0) {
                             name.pickupItem(location.getItemAtIndex(itemIndex));
-                            System.out.println("Item picked up successfully!");
                             printVariable = false;
                             break;
                         }
@@ -184,6 +189,14 @@ class Main
                             break;
                         }
                         printVariable = false;
+                        break;
+                    }
+                    printVariable = false;
+                    break;
+
+                case "graduate":
+                    if (sphinx.graduate(name)) {
+                        gameOn = false;
                         break;
                     }
                     printVariable = false;
@@ -264,6 +277,8 @@ class Main
     playerAvatar.setCurrentLocation("FooBar");
     placeKeys(worldCreator.world, playerAvatar);
     placeBooks(worldCreator.world, bookCreator.booksInWorld);
-    playGame(playerAvatar);
+    Room sphinxLocation = worldCreator.world[x];
+    Sphinx sphinx = new Sphinx(sphinxLocation);
+    playGame(playerAvatar, sphinx);
     }
 }
