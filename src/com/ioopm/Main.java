@@ -255,7 +255,7 @@ class Main
                     }
                     break;
                 default:
-                    System.out.println("Valid options are: Go (Direction), Talk, Pick Up (Item)," +
+                    System.out.println("Valid options are: Go (Direction), Talk (sphinx), Pick Up (Item)," +
                             " Drop Key/Book, Inventory, Unlock Door, Quit");
                     printVariable = false;
             }
