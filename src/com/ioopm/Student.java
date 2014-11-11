@@ -24,6 +24,6 @@ public class Student extends Creature{
     }
 
     public void talk(){
-        System.out.printf("I haev diz: %s!\n", this.courseBook.toString());
+        System.out.printf("I haev diz: %s and I study %s \n", this.courseBook.toString(), this.course.toString());
     }
 }
