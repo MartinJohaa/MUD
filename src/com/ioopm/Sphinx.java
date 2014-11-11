@@ -22,4 +22,7 @@ public class Sphinx extends Creature{
         System.out.println("I will eat you alive with mayonnaise if you \ndon't have enough points when you try to graduate!");
     }
 
+    public Course getCourse(){
+        return Main.courseCreator.courseList[0];
+    }
 }

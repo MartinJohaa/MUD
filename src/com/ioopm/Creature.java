@@ -1,6 +1,6 @@
 package com.ioopm;
 
-public class Creature {
+abstract class Creature {
     private String name;
     private Room location;
 
@@ -30,4 +30,15 @@ public class Creature {
     public String toString(){
         return this.name;
     }
+
+    public void setCourse(Course c){
+    }
+
+    public void setCourseBook(Book b){
+    }
+
+    public void talk(){
+    }
+
+    abstract public Course getCourse();
 }

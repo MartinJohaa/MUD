@@ -202,10 +202,14 @@ public class Room {
             if (i == (this.creatures.size() - 1)) {
                 result += tempItem.toString();
             } else {
-                result += (tempItem.toString() + ", ");
+                result += (tempItem.toString() + ("(" + tempItem.getCourse().toString() + ")") + ", ");
             }
         }
         return result;
+    }
+
+    public ArrayList getCreatureList(){
+        return this.creatures;
     }
 
     public String toString() {

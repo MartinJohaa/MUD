@@ -4,3 +4,5 @@ You will C;Baba-K;1967;2
 Functional Programming in ML;John Davids;1944;2
 Jurassic Park;Steven Spielberg;1993;1
 |_0|_b00|<;Adil;2002;1
+Tavelteknik;Erik;2014;5
+Chokladkokning;Martin;1648;10

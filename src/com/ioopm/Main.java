@@ -1,4 +1,6 @@
 package com.ioopm;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -10,6 +12,8 @@ class Main
     public static ReadFile courseCreator;
     public static Random randomizer = new Random();
     public static Avatar playerAvatar;
+    public static Creature[] tutors = new Creature[6];
+    public static Creature[] students = new Creature[2];
 
     public static int x = randomizer.nextInt(19);
 
@@ -30,13 +34,12 @@ class Main
         return -1;
     }
 
-    public static int findObjectIndex(String string, Object[] array){
-        for (int i = 0; i < array.length; i++) {
-            if (array[i].toString().equals(string)) {
-                return i;
-            }
+    public static void linkCourses(Course[] courses, Creature[] tutors){
+        int i = 0;
+        for(Creature a:tutors){
+            a.setCourse(courses[i]);
+            i++;
         }
-        return -1;
     }
 
     public static void placeKeys(Room[] world, Avatar name){
@@ -68,8 +71,13 @@ class Main
     }
 
     public static void placeBooks(Room[] world, Book[] books){
-        for (int i = 0; i < 6 ; i++)
+        for (int i = 0; i < 6 ; i++) {
             world[randomizer.nextInt(19)].addItem(books[i]);
+        }
+        for (int i = 0; i < 2; i++) {
+            int x = 6;
+            Main.students[i].setCourseBook(books[x]);
+        }
     }
 
     /**
@@ -150,6 +158,18 @@ class Main
                     input2 = scannerInput.next().toLowerCase();
                     if(input2.equals("sphinx")){
                         sphinx.communicate();
+                    }
+                    if(input2.equals("student")){
+                        System.out.println("Specify which student (surname lastname): ");
+                        Scanner studentName = new Scanner(System.in);
+                        String nameInput = studentName.nextLine();
+                        Room currentRoom = name.getCurrentLocation();
+                        ArrayList<Creature> creaturesInThisRoom = currentRoom.getCreatureList();
+                        for (int i = 0; i < creaturesInThisRoom.size(); i++){
+                            if (nameInput.equals(creaturesInThisRoom.get(i).toString())){
+                                creaturesInThisRoom.get(i).talk();
+                            }
+                        }
                     }
                     printVariable = false;
                     break;
@@ -290,6 +310,8 @@ class Main
     placeBooks(worldCreator.world, bookCreator.booksInWorld);
     Room sphinxLocation = worldCreator.world[x];
     Sphinx sphinx = new Sphinx(sphinxLocation);
+    linkCourses(courseCreator.courseList, tutors);
+    linkCourses(courseCreator.courseList, students);
     playGame(playerAvatar, sphinx);
     }
 }

@@ -99,12 +99,14 @@ public class ReadFile {
          */
         creatureScanner.useDelimiter(";");
         /**
-         * variable to increase index of world (the array the rooms are written to)
+         * variable to increase index of (the array the objects are written to)
          */
         int x = 0;
+        int y = 0;
+        int z = 0;
         while (creatureScanner.hasNext()) {
             /**
-             * Puts the info from the different segments in a line from rooms.txt
+             * Puts the info from the different segments in a line from creatures.txt
              * to variables
              */
             String name = creatureScanner.next();
@@ -113,8 +115,12 @@ public class ReadFile {
             kind = kind.substring(1, kind.length());
             if (kind.equals("Student")) {
                 creatures[x] = new Student(name, room);
+                Main.students[z] = creatures [x];
+                z++;
             } else if (kind.equals("Teacher")) {
                 creatures[x] = new Teacher(name, room);
+                Main.tutors[y] = creatures[x];
+                y++;
             }
             x += 1;
         }
@@ -148,7 +154,7 @@ public class ReadFile {
     }
 
     public Book[] readBookFile() {
-        booksInWorld = new Book[6];
+        booksInWorld = new Book[8];
         bookScan.useDelimiter(";");
         int x = 0;
         while (bookScan.hasNext()) {
@@ -199,7 +205,6 @@ public class ReadFile {
             String stringCourseLiterature = courseScan.next();
             String stringCourseHP = courseScan.nextLine();
             stringCourseHP = stringCourseHP.substring(1, stringCourseHP.length());
-            System.out.println(stringCourseHP);
             int courseHP = Integer.parseInt(stringCourseHP);
             Book courseLiterature = Main.bookCreator.booksInWorld[1];
             for (int i = 0; i < 6; i++) {
@@ -208,6 +213,7 @@ public class ReadFile {
                 }
             }
             courseList[x] = new Course(courseName, courseLiterature, courseHP);
+            x += 1;
         }
         return courseList;
     }
