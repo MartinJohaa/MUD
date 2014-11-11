@@ -74,9 +74,10 @@ class Main
         for (int i = 0; i < 6 ; i++) {
             world[randomizer.nextInt(19)].addItem(books[i]);
         }
+        int bookIndex = 6;
         for (int i = 0; i < 2; i++) {
-            int x = 6;
-            Main.students[i].setCourseBook(books[x]);
+            Main.students[i].setCourseBook(books[bookIndex]);
+            bookIndex += 1;
         }
     }
 
@@ -159,20 +160,27 @@ class Main
                     if(input2.equals("sphinx")){
                         sphinx.communicate();
                     }
-                    if(input2.equals("student")){
+                    if(input2.equals("student")) {
                         System.out.println("Specify which student (surname lastname): ");
                         Scanner studentName = new Scanner(System.in);
-                        String nameInput = studentName.nextLine();
+                        String nameInput = studentName.nextLine().toLowerCase();
                         Room currentRoom = name.getCurrentLocation();
                         ArrayList<Creature> creaturesInThisRoom = currentRoom.getCreatureList();
-                        for (int i = 0; i < creaturesInThisRoom.size(); i++){
-                            if (nameInput.equals(creaturesInThisRoom.get(i).toString())){
+                        boolean StudentIsFound = false;
+                        for (int i = 0; i < creaturesInThisRoom.size(); i++) {
+                            if (nameInput.equals(creaturesInThisRoom.get(i).toString().toLowerCase())) {
                                 creaturesInThisRoom.get(i).talk();
+                                StudentIsFound = true;
                             }
                         }
+                        if (StudentIsFound) {
+                            printVariable = false;
+                            break;
+                        }
+                        System.out.println("Student not found in this room!");
+                        printVariable = false;
+                        break;
                     }
-                    printVariable = false;
-                    break;
                 case "pick":
                     input2 = scannerInput.next().toLowerCase();
                     String itemInput = scannerInput.next();
