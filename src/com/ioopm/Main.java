@@ -158,7 +158,12 @@ class Main
                 case "talk":
                     input2 = scannerInput.next().toLowerCase();
                     if(input2.equals("sphinx")){
-                        sphinx.communicate();
+                        ArrayList<Creature> rc = name.getCurrentLocation().getCreatureList();
+                        for (Creature a:rc){
+                            if (a.equals(Sphinx.)){
+                                sphinx.communicate();
+                            }
+                        }
                     }
                     if(input2.equals("student")) {
                         System.out.println("Specify which student (surname lastname): ");
