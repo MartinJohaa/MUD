@@ -40,7 +40,10 @@ public class Room {
         west[1] = westLock;
     }
 
-    // För att skriva ut all info om ett rum
+    /**
+     *  Method to print out information about the room
+     *
+     */
     public void roomInfo() {
         System.out.printf("You have entered %s. \n", this.name);
         System.out.printf("Facing north, you can see a door leading to %s. \n", this.north[0]);
@@ -53,6 +56,13 @@ public class Room {
         System.out.printf("Creatures in room: %s\n", printCreatures());
     }
 
+    /**
+     *  Method used to check the status of the lock in the given
+     *  direction
+     *
+     * @param direction the door's direction
+     * @return true if the door is unlocked, else false
+     */
     public boolean isOpen(String direction) {
         switch (direction) {
             case "north":
@@ -85,6 +95,13 @@ public class Room {
         }
     }
 
+    /**
+     *  Method to validate if there is a door in the
+     *  given direction.
+     *
+     * @param direction direction to be validated
+     * @return true if a door is present, else false
+     */
     public boolean validateConnection(String direction) {
         switch (direction) {
             case "north":
@@ -117,6 +134,13 @@ public class Room {
         }
     }
 
+    /**
+     * Method to get hold of the name of the room in the
+     * given direction.
+     *
+     * @param direction direction of the room which name is wanted
+     * @return the string representing the desired room's name
+     */
     public String getRoomNameInDirection(String direction) {
         switch (direction.toLowerCase()) {
             case "north":
@@ -133,6 +157,13 @@ public class Room {
         }
     }
 
+    /**
+     * Method to deliver info about the given direction's
+     * connecting door and the status of its lock
+     * @param direction the direction to be investigated
+     * @return a string array containing the connecting room's
+     *         name and the status of the door's lock.
+     */
     public String[] getDirectionInfoArray(String direction) {
         switch (direction) {
             case "north":
@@ -149,14 +180,31 @@ public class Room {
         }
     }
 
+    /**
+     * Method to add an item to the room's itemlist
+     * @param item the item to be added
+     */
     public void addItem(Items item) {
         this.items.add(item);
     }
 
+    /**
+     * Method to remove an item from the room's
+     * itemlist
+     * @param item the item to be removed
+     */
     public void removeItem(Items item) {
         this.items.remove(item);
     }
 
+    /**
+     * Method to find the index of a specific item in the room's
+     * itemlist.
+     * @param itemName the string-representation of the item of
+     *                 which the index is wanted
+     * @return the int representing the items index
+     *         in the room's itemlist
+     */
     public int findItemIndex(String itemName) {
         int i = 0;
         for (Items a : this.items) {

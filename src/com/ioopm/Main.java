@@ -121,16 +121,22 @@ class Main
         }
         /*Sets originalLocation to the currentLocation.*/
         Room originalLocation = name.getCurrentLocation();
+
         /*Unlocks the door in the currentLocation in desired direction.*/
         originalLocation.unlockDoor(originalLocation.getDirectionInfoArray(direction));
+
         /*Sets oppositeRoom to the name of the room on the other side of the unlocked door.*/
         String oppositeRoom = originalLocation.getRoomNameInDirection(direction);
+
         /*Change the location to the room on the other side of the unlocked door */
         name.setCurrentLocation(oppositeRoom);
+
         /*Sets oppositeLocation to the new location*/
         Room oppositeLocation = name.getCurrentLocation();
+
         /*Unlocks the "same" door from the new location*/
         oppositeLocation.unlockDoor(oppositeLocation.getDirectionInfoArray(oppositeDirection));
+
         /*Change the location back to the originalLocation*/
         name.setCurrentLocation(originalLocation.toString());
     }
