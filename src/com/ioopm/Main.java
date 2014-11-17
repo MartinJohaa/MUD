@@ -268,33 +268,65 @@ class Main
                         String doorDirection = input3.next();
                         switch (doorDirection) {
                             case "north":
-                                if (name.checkForKeyAndRemove()) {
-                                    unlockDoor("north", name);
-                                    System.out.println("[Sound of door being unlocked]");
+                                if (name.getCurrentLocation().isOpen(doorDirection)) {
+                                    System.out.println("That door is already unlocked!");
+                                    break;
+                                    }
+                                if  (name.checkForKeyAndRemove()){
+                                    if (name.getCurrentLocation().validateConnection(doorDirection)) {
+                                        unlockDoor("north", name);
+                                        System.out.println("[Sound of door being unlocked]");
+                                        break;
+                                    }
+                                    System.out.println("There is no door in that direction!");
                                     break;
                                 }
                                 System.out.println("You have no key in your inventory!");
                                 break;
                             case "east":
-                                if (name.checkForKeyAndRemove()) {
-                                    unlockDoor("east", name);
-                                    System.out.println("[Sound of door being unlocked]");
+                                if (name.getCurrentLocation().isOpen(doorDirection)) {
+                                    System.out.println("That door is already unlocked!");
+                                    break;
+                                }
+                                if  (name.checkForKeyAndRemove()){
+                                    if (name.getCurrentLocation().validateConnection(doorDirection)) {
+                                        unlockDoor("east", name);
+                                        System.out.println("[Sound of door being unlocked]");
+                                        break;
+                                    }
+                                    System.out.println("There is no door in that direction!");
                                     break;
                                 }
                                 System.out.println("You have no key in your inventory!");
                                 break;
                             case "south":
-                                if (name.checkForKeyAndRemove()) {
-                                    unlockDoor("south", name);
-                                    System.out.println("[Sound of door being unlocked]");
+                                if (name.getCurrentLocation().isOpen(doorDirection)) {
+                                    System.out.println("That door is already unlocked!");
+                                    break;
+                                }
+                                if  (name.checkForKeyAndRemove()){
+                                    if (name.getCurrentLocation().validateConnection(doorDirection)) {
+                                        unlockDoor("south", name);
+                                        System.out.println("[Sound of door being unlocked]");
+                                        break;
+                                    }
+                                    System.out.println("There is no door in that direction!");
                                     break;
                                 }
                                 System.out.println("You have no key in your inventory!");
                                 break;
                             case "west":
-                                if (name.checkForKeyAndRemove()) {
-                                    unlockDoor("west", name);
-                                    System.out.println("[Sound of door being unlocked]");
+                                if (name.getCurrentLocation().isOpen(doorDirection)) {
+                                    System.out.println("That door is already unlocked!");
+                                    break;
+                                }
+                                if  (name.checkForKeyAndRemove()){
+                                    if (name.getCurrentLocation().validateConnection(doorDirection)) {
+                                        unlockDoor("west", name);
+                                        System.out.println("[Sound of door being unlocked]");
+                                        break;
+                                    }
+                                    System.out.println("There is no door in that direction!");
                                     break;
                                 }
                                 System.out.println("You have no key in your inventory!");
