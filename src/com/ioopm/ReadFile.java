@@ -16,8 +16,10 @@ public class ReadFile {
         try {
             rooms = new Scanner(new File("rooms.txt"));
         } catch (IOException e) {
+            System.err.println(e.getMessage());
             e.printStackTrace();
             System.out.println("File not found! check rooms.txt");
+            System.exit(-1);
         }
     }
 
@@ -47,7 +49,7 @@ public class ReadFile {
             String northLock = rooms.next();
             String eastLock = rooms.next();
             String southLock = rooms.next();
-            String westLock = rooms.nextLine(); // Fråga ass!!
+            String westLock = rooms.nextLine();
             westLock = westLock.substring(2, westLock.length());
 
             /**

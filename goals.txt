@@ -1,0 +1,28 @@
+D9 - Dokumentera
+
+E10 - Void-pekare i C
+ 
+F13 - Översätta mellan rekursivt och iterativt
+
+I23 - Fånga på lämpliga platser (try/catch)
+
+N40 - Demonstrerar kompilering, länkning, pinterpret. JIT
+
+O42 - Profileringsverktyg, mäta vart ett program tillbringar mest tid
+
+Q47 - Ta fram lämpiga enhetstester
+
+PROJEKT:
+
+Y63 - test-driven utveckling
+Y64 - Scrum/Kanban, Trello 
+Y65 - Tillämpa kodstandard
+Y66 - Kodgranskning
+Y67 - Parprogrammering
+Y68 - Komplett proj.uppg.
+
+-----------------------------
+
+Z69 - ETT C-program
+Z70 - ETT Java-program
+Z71 - ett java/c-program
