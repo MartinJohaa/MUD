@@ -1,10 +1,6 @@
-D9 - Dokumentera
-
 E10 - Void-pekare i C
  
 F13 - Översätta mellan rekursivt och iterativt
-
-I23 - Fånga på lämpliga platser (try/catch)
 
 N40 - Demonstrerar kompilering, länkning, pinterpret. JIT
 
