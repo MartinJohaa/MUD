@@ -8,6 +8,8 @@ O42 - Profileringsverktyg, mäta vart ett program tillbringar mest tid
 
 Q47 - Ta fram lämpiga enhetstester
 
+X59 - Välstrukturerad presentation 
+
 PROJEKT:
 
 Y63 - test-driven utveckling
