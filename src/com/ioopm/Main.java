@@ -277,7 +277,8 @@ class Main
 
                 case "hp":
                     int hp = name.getHP();
-                    System.out.printf("%d",hp);
+                    System.out.printf("%d\n",hp);
+                    enteredNewRoom = false;
                     break;
 
                 case "unlock":

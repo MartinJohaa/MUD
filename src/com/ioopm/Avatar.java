@@ -34,8 +34,22 @@ class Avatar{
     public void addUnfinishedCourse(String course){
 	    unfinishedCourses.add(course);
     }
+
+    public void removeFinishedCourse(String course){
+        finishedCourses.remove(course);
+    }
+
     public boolean searchUnfinishedCourses(String courseName){
         for (String a:unfinishedCourses){
+            if(a.equals(courseName)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean searchFinishedCourses(String courseName){
+        for (String a:finishedCourses){
             if(a.equals(courseName)){
                 return true;
             }

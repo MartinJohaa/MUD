@@ -43,10 +43,9 @@ public class Course {
                 String answer = userAnswer.nextLine().toLowerCase();
                 if (answer.equals("a") || answer.equals("b") || answer.equals("c")) {
                     if (answer.equals("a")) {
-                        System.out.println("High five! I'll report your result to UpDok immediately!");
                         return true;
                     } else {
-                        System.out.println("Wrong answer!");
+                        System.out.print("Wrong answer! ");
                         return false;
                     }
                 }
@@ -63,10 +62,9 @@ public class Course {
                 String answer = userAnswer.nextLine().toLowerCase();
                 if (answer.equals("a") || answer.equals("b") || answer.equals("c")) {
                     if (answer.equals("c")) {
-                        System.out.print("Good job, correct answer!!");
                         return true;
                     } else {
-                        System.out.println("Wrong answer!");
+                        System.out.print("Wrong answer! ");
                         return false;
                     }
                 }
