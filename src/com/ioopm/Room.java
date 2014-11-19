@@ -52,8 +52,10 @@ public class Room {
         System.out.printf("The south door leads to %s, ", this.south[0]);
         System.out.printf("and finally in your western direction\nyou see a door" +
                 " that will lead you to %s. \n", this.west[0]);
+        System.out.println("----------------------------------------");
         System.out.printf("Items found in room: %s\n", printItems());
         System.out.printf("Creatures in room: %s\n", printCreatures());
+        System.out.println("----------------------------------------");
     }
 
     /**
@@ -248,7 +250,7 @@ public class Room {
         for (int i = 0; i < this.creatures.size(); i++) {
             Creature tempItem = this.creatures.get(i);
             if (i == (this.creatures.size() - 1)) {
-                result += tempItem.toString();
+                result += (tempItem.toString() + ("(" + tempItem.getCourse().toString() + ")"));
             } else {
                 result += (tempItem.toString() + ("(" + tempItem.getCourse().toString() + ")") + ", ");
             }
@@ -266,5 +268,21 @@ public class Room {
 
     public void unlockDoor(String[] direction) {
         direction[1] = "True";
+    }
+
+    public int ifTeacherPresentGetIndex(){
+        int i = 0;
+        for (Creature a:this.creatures){
+            Integer x = a.whichKindOfCreature();
+            if(x.equals(2)){
+                return i;
+            }
+            i++;
+        }
+        return -1;
+    }
+
+    public Creature getCreature(int i){
+        return this.creatures.get(i);
     }
 }

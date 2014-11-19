@@ -26,4 +26,11 @@ public class Student extends Creature{
     public void talk(){
         System.out.printf("I haev diz: %s and I study %s \n", this.courseBook.toString(), this.course.toString());
     }
+
+    public int whichKindOfCreature(){
+        return 1;
+    }
+
+    public void question(Avatar name){
+    }
 }

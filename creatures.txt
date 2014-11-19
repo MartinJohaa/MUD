@@ -1,8 +1,8 @@
 Sharky Puppy;FooBar;Teacher
-A;Skrubben;Teacher
-B;Room 1211;Teacher
-C;Room 1209;Teacher
-D;Room 1210;Teacher
-E;Room 1211;Teacher
+Bengt Hansson;Skrubben;Teacher
+Agneta Beckenbauer;Room 1211;Teacher
+Sven Lindhammar;Room 1209;Teacher
+Doris Knowsalot;Room 1210;Teacher
+Elain Porcelain;Room 1211;Teacher
 Martin Johansson;FooBar;Student
 Erik Englund;FooBar;Student

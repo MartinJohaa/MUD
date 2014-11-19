@@ -41,4 +41,10 @@ abstract class Creature {
     }
 
     abstract public Course getCourse();
+
+    public int whichKindOfCreature(){
+        return -1;
+    }
+
+    abstract void question(Avatar name);
 }

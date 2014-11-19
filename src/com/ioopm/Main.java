@@ -143,10 +143,15 @@ class Main
 
     public static void playGame(Avatar name, Sphinx sphinx){
         boolean gameOn = true;
-        boolean printVariable = true;
+        boolean enteredNewRoom = true;
         while(gameOn) {
-            if (printVariable) {
+            if (enteredNewRoom) {
                 name.printCurrentLocation();
+                int teacherIndex = name.getCurrentLocation().ifTeacherPresentGetIndex();
+                if (teacherIndex>=0){
+                    Creature teacherInRoom = name.getCurrentLocation().getCreature(teacherIndex);
+                    teacherInRoom.question(name);
+                }
             }
             System.out.println("Choose your action: ");
             Scanner scannerInput = new Scanner(System.in);
@@ -154,13 +159,14 @@ class Main
             switch(input1){
                 case "go":
                     String input2 = scannerInput.next().toLowerCase();
-                    printVariable = true;
+                    enteredNewRoom = true;
                     String loc = name.getCurrentLocation().toString();
                     move(name, input2);
                     if (loc.equals(name.getCurrentLocation().toString())){
-                        printVariable = false;
+                        enteredNewRoom = false;
                     }
                     break;
+
                 case "talk":
                     input2 = scannerInput.next().toLowerCase();
                     if(input2.equals("sphinx")){
@@ -175,7 +181,7 @@ class Main
                        if (!sphinxInRoom){
                            System.out.println("There ain't no Sphinx in here!");
                        }
-                        printVariable = false;
+                        enteredNewRoom = false;
                         break;
                     }
                     if(input2.equals("student")) {
@@ -192,20 +198,14 @@ class Main
                             }
                         }
                         if (StudentIsFound) {
-                            printVariable = false;
+                            enteredNewRoom = false;
                             break;
                         }
                         System.out.println("Student not found in this room!");
-                        printVariable = false;
+                        enteredNewRoom = false;
                         break;
                     }
-                    if(input2.equals("teacher")){
-                        System.out.println("Specify which teacher (surname lastname): ");
-                        Scanner teacherName = new Scanner(System.in);
-                        String nameInput = teacherName.nextLine().toLowerCase();
-                        Room currentRoom = name.getCurrentLocation();
 
-                    }
                 case "pick":
                     input2 = scannerInput.next().toLowerCase();
                     String itemInput = scannerInput.next();
@@ -220,12 +220,13 @@ class Main
                         int itemIndex = location.findItemIndex(itemInput);
                         if (itemIndex >= 0) {
                             name.pickupItem(location.getItemAtIndex(itemIndex));
-                            printVariable = false;
+                            enteredNewRoom = false;
                             break;
                         }
-                        printVariable = false;
+                        enteredNewRoom = false;
                         break;
                     }
+
                 case "drop":
                     input2 = scannerInput.next().toLowerCase();
                     Room location = name.getCurrentLocation();
@@ -247,13 +248,13 @@ class Main
                             Items tempBook = name.getItemAtIndex(itemIndex);
                             name.dropItem(tempBook);
                             System.out.println("Item dropped successfully!");
-                            printVariable = false;
+                            enteredNewRoom = false;
                             break;
                         }
-                        printVariable = false;
+                        enteredNewRoom = false;
                         break;
                     }
-                    printVariable = false;
+                    enteredNewRoom = false;
                     break;
 
                 case "graduate":
@@ -261,16 +262,22 @@ class Main
                         gameOn = false;
                         break;
                     }
-                    printVariable = false;
+                    enteredNewRoom = false;
                     break;
 
                 case "quit":
                     System.out.println("Safe travels, hope to see you soon again!");
                     gameOn = false;
                     break;
+
                 case "inventory":
                     name.printInventory();
-                    printVariable = false;
+                    enteredNewRoom = false;
+                    break;
+
+                case "hp":
+                    int hp = name.getHP();
+                    System.out.printf("%d",hp);
                     break;
 
                 case "unlock":
@@ -345,13 +352,13 @@ class Main
                                 System.out.println("You have no key in your inventory!");
                                 break;
                         }
-                        printVariable = false;
+                        enteredNewRoom = false;
                     }
                     break;
                 default:
                     System.out.println("Valid options are: Go (Direction), Talk (sphinx), Pick Up (Item)," +
                             " Drop Key/Book, Inventory, Unlock Door, Quit");
-                    printVariable = false;
+                    enteredNewRoom = false;
             }
         }
     }
@@ -377,6 +384,8 @@ class Main
     Sphinx sphinx = new Sphinx(sphinxLocation);
     linkCourses(courseCreator.courseList, tutors);
     linkCourses(courseCreator.courseList, students);
+    playerAvatar.addUnfinishedCourse("Datakommunikation 301");
+    playerAvatar.addUnfinishedCourse("Bokvetenskap 101");
     playGame(playerAvatar, sphinx);
     }
 }

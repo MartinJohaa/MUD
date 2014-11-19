@@ -26,12 +26,23 @@ class Avatar{
     public Room getCurrentLocation(){
         return this.currentLocation;
     }
+
     public void addFinishedCourse(String courseName){
 	    finishedCourses.add(courseName);
+        unfinishedCourses.remove(courseName);
     }
     public void addUnfinishedCourse(String course){
-	unfinishedCourses.add(course);
+	    unfinishedCourses.add(course);
     }
+    public boolean searchUnfinishedCourses(String courseName){
+        for (String a:unfinishedCourses){
+            if(a.equals(courseName)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public int getHP(){
         return this.HP;
     }

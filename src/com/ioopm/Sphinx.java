@@ -1,7 +1,5 @@
 package com.ioopm;
 
-import java.util.Random;
-
 public class Sphinx extends Creature{
 
     public Sphinx(Room location){
@@ -24,5 +22,12 @@ public class Sphinx extends Creature{
 
     public Course getCourse(){
         return Main.courseCreator.courseList[0];
+    }
+
+    public int whichKindOfCreature(){
+        return 3;
+    }
+
+    public void question(Avatar name){
     }
 }
