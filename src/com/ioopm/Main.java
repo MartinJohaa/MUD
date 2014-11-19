@@ -199,6 +199,13 @@ class Main
                         printVariable = false;
                         break;
                     }
+                    if(input2.equals("teacher")){
+                        System.out.println("Specify which teacher (surname lastname): ");
+                        Scanner teacherName = new Scanner(System.in);
+                        String nameInput = teacherName.nextLine().toLowerCase();
+                        Room currentRoom = name.getCurrentLocation();
+
+                    }
                 case "pick":
                     input2 = scannerInput.next().toLowerCase();
                     String itemInput = scannerInput.next();
