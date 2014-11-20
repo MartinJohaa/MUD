@@ -377,11 +377,18 @@ class Main
                     }
                     break;
                 case "help":
-                    System.out.println("This is a GAME DESCRIPTION: You need 180 HP in order to graduate at the Sphinx of Eternal Life And Power.\n" +
+                    System.out.println("----------------------------------------");
+                    System.out.println("This is a GAME DESCRIPTION:");
+                    System.out.println("----------------------------------------");
+                    System.out.println("You need 180 HP in " +
+                            "order to graduate at The Sphinx of Eternal Life And Power.\n" +
                             "In order to reach 180 HP you have to enroll courses given by different teachers encountered in the world \n" +
-                            "of Pollax. When you have enrolled a specific course, and enters a room where the course's teacher is present, \n" +
-                            "you have a 75% chance of getting an examinating question from him or her. The question has three answering alternatives\n" +
-                            ", but if you have the course literature in your inventory one of the wrong alternatives will be removed.\n");
+                            "of Pollax. When you have enrolled a specific course, and enter a room where the course's teacher is present,\n" +
+                            "you have a 75% chance of getting an exam-question from him or her. " +
+                            "The question has three answering alternatives,\n" +
+                            "but if you have the course literature in your inventory one of the wrong alternatives will be removed.\n" +
+                            "Good luck on your journey!\n");
+                    System.out.println("----------------------------------------");
                     enteredNewRoom = false;
                     break;
                 default:

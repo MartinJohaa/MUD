@@ -74,6 +74,27 @@ public class Course {
                 }
             }
         }
+        if(this.name.equals("IOOPM")){
+            System.out.println("How do you initialize a string-list in SML?");
+            if(!hasLiterature) {
+                System.out.println("A: String[] stringList = new String[2]");
+            }
+            System.out.println("B: val stringList = [\"string1\"]");
+            System.out.println("C: char* stringList = {'string1'}");
+            while(!questionHasBeenAnswered) {
+                System.out.print("Enter your answer (A,B or C): ");
+                Scanner userAnswer = new Scanner(System.in);
+                String answer = userAnswer.nextLine().toLowerCase();
+                if (answer.equals("a") || answer.equals("b") || answer.equals("c")) {
+                    if (answer.equals("b")) {
+                        return true;
+                    } else {
+                        System.out.println("Wrong answer! ");
+                        return false;
+                    }
+                }
+            }
+        }
         return false;
     }
 }

@@ -1,5 +1,5 @@
-Bokvetenskap 101;Det skrivna ordet;60
-Datakommunikation 301;The Art of Data Communication;60
+Bokvetenskap 101;Det skrivna ordet;10
+Datakommunikation 301;The Art of Data Communication;20
 IOOPM;You will C;20
 PKD;Functional Programming in ML;15
 Dinosaurie Lära;Jurassic Park;25
