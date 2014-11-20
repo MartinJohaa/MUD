@@ -1,6 +1,5 @@
 package com.ioopm;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -15,7 +14,11 @@ class Main
     public static Creature[] tutors = new Creature[6];
     public static Creature[] students = new Creature[2];
 
-    public static int x = randomizer.nextInt(19);
+    public static int[] indexOfSphinxRooms = {1,3,6,10,11,14,15,18};
+    public static int x = randomizer.nextInt(8);
+    public static int getSphinxRoomIndex(int randNum, int[] roomIndexArray){
+        return roomIndexArray[randNum];
+    }
 
 
 
@@ -157,8 +160,30 @@ class Main
             Scanner scannerInput = new Scanner(System.in);
             String input1 = scannerInput.next().toLowerCase();
             switch(input1){
+                case "enroll":
+                    enteredNewRoom = false;
+                    String input2 = scannerInput.nextLine().toLowerCase().substring(1);
+                    int teacherIndex = name.getCurrentLocation().ifTeacherPresentGetIndex();
+                    Creature teacherInRoom = name.getCurrentLocation().getCreature(teacherIndex);
+                    if (teacherIndex>=0){
+                        if (input2.equals(teacherInRoom.getCourse().toString().toLowerCase())) {
+                            Course courseToBeAdded = teacherInRoom.getCourse();
+                            if (name.searchUnfinishedCourses(courseToBeAdded.toString())) {
+                                System.out.println("You have already enrolled in this course!");
+                                break;
+                            }
+                            name.addUnfinishedCourse(courseToBeAdded.toString());
+                            System.out.println("Course added to your unfinished courses!");
+                            break;
+                        }
+                        System.out.println("There is no teacher present that teaches the specified course!");
+                        break;
+                    }
+                    System.out.println("Teacher not found in room!");
+                    break;
+
                 case "go":
-                    String input2 = scannerInput.next().toLowerCase();
+                    input2 = scannerInput.next().toLowerCase();
                     enteredNewRoom = true;
                     String loc = name.getCurrentLocation().toString();
                     move(name, input2);
@@ -168,6 +193,7 @@ class Main
                     break;
 
                 case "talk":
+                    enteredNewRoom = false;
                     input2 = scannerInput.next().toLowerCase();
                     if(input2.equals("sphinx")){
                        ArrayList<Creature> rc = name.getCurrentLocation().getCreatureList();
@@ -181,7 +207,6 @@ class Main
                        if (!sphinxInRoom){
                            System.out.println("There ain't no Sphinx in here!");
                        }
-                        enteredNewRoom = false;
                         break;
                     }
                     if(input2.equals("student")) {
@@ -198,15 +223,14 @@ class Main
                             }
                         }
                         if (StudentIsFound) {
-                            enteredNewRoom = false;
                             break;
                         }
                         System.out.println("Student not found in this room!");
-                        enteredNewRoom = false;
                         break;
                     }
 
                 case "pick":
+                    enteredNewRoom = false;
                     input2 = scannerInput.next().toLowerCase();
                     String itemInput = scannerInput.next();
                     if (input2.equals("up")){
@@ -220,14 +244,13 @@ class Main
                         int itemIndex = location.findItemIndex(itemInput);
                         if (itemIndex >= 0) {
                             name.pickupItem(location.getItemAtIndex(itemIndex));
-                            enteredNewRoom = false;
                             break;
                         }
-                        enteredNewRoom = false;
                         break;
                     }
 
                 case "drop":
+                    enteredNewRoom = false;
                     input2 = scannerInput.next().toLowerCase();
                     Room location = name.getCurrentLocation();
                     if (input2.equals("key")) {
@@ -248,13 +271,10 @@ class Main
                             Items tempBook = name.getItemAtIndex(itemIndex);
                             name.dropItem(tempBook);
                             System.out.println("Item dropped successfully!");
-                            enteredNewRoom = false;
                             break;
                         }
-                        enteredNewRoom = false;
                         break;
                     }
-                    enteredNewRoom = false;
                     break;
 
                 case "graduate":
@@ -282,6 +302,7 @@ class Main
                     break;
 
                 case "unlock":
+                    enteredNewRoom = false;
                     input2 = scannerInput.next().toLowerCase();
                     if (input2.equals("door")){
                         System.out.println("Choose direction:");
@@ -353,12 +374,19 @@ class Main
                                 System.out.println("You have no key in your inventory!");
                                 break;
                         }
-                        enteredNewRoom = false;
                     }
                     break;
+                case "help":
+                    System.out.println("This is a GAME DESCRIPTION: You need 180 HP in order to graduate at the Sphinx of Eternal Life And Power.\n" +
+                            "In order to reach 180 HP you have to enroll courses given by different teachers encountered in the world \n" +
+                            "of Pollax. When you have enrolled a specific course, and enters a room where the course's teacher is present, \n" +
+                            "you have a 75% chance of getting an examinating question from him or her. The question has three answering alternatives\n" +
+                            ", but if you have the course literature in your inventory one of the wrong alternatives will be removed.\n");
+                    enteredNewRoom = false;
+                    break;
                 default:
-                    System.out.println("Valid options are: Go (Direction), Talk (sphinx), Pick Up (Item)," +
-                            " Drop Key/Book, Inventory, Unlock Door, Quit");
+                    System.out.println("Valid options are: Go (Direction), Talk (sphinx, student), Pick Up (Item)," +
+                            " Drop Key/Book\n, Inventory, Enroll (course), Unlock Door, Graduate, Help, Quit");
                     enteredNewRoom = false;
             }
         }
@@ -381,12 +409,10 @@ class Main
     playerAvatar.setCurrentLocation("FooBar");
     placeKeys(worldCreator.world, playerAvatar);
     placeBooks(worldCreator.world, bookCreator.booksInWorld);
-    Room sphinxLocation = worldCreator.world[x];
+    Room sphinxLocation = worldCreator.world[getSphinxRoomIndex(x, indexOfSphinxRooms)];
     Sphinx sphinx = new Sphinx(sphinxLocation);
     linkCourses(courseCreator.courseList, tutors);
     linkCourses(courseCreator.courseList, students);
-    playerAvatar.addUnfinishedCourse("Datakommunikation 301");
-    playerAvatar.addUnfinishedCourse("Bokvetenskap 101");
     playGame(playerAvatar, sphinx);
     }
 }

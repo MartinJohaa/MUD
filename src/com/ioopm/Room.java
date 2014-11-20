@@ -250,9 +250,17 @@ public class Room {
         for (int i = 0; i < this.creatures.size(); i++) {
             Creature tempItem = this.creatures.get(i);
             if (i == (this.creatures.size() - 1)) {
-                result += (tempItem.toString() + ("(" + tempItem.getCourse().toString() + ")"));
+                if (tempItem.toString().substring(0, 3).equals("The")) {
+                    result += (tempItem.toString());
+                } else {
+                    result += (tempItem.toString() + ("(" + tempItem.getCourse().toString() + ")"));
+                }
             } else {
-                result += (tempItem.toString() + ("(" + tempItem.getCourse().toString() + ")") + ", ");
+                if (tempItem.toString().substring(0, 3).equals("The")) {
+                    result += (tempItem.toString() + ", ");
+                } else {
+                    result += (tempItem.toString() + ("(" + tempItem.getCourse().toString() + ")") + ", ");
+                }
             }
         }
         return result;

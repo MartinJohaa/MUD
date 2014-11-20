@@ -11,7 +11,6 @@ public class Course {
         this.name = name;
         this.literature = literature;
         this.HP = HP;
-
     }
 
     public String toString() {
@@ -30,12 +29,15 @@ public class Course {
         return this.HP;
     }
 
-    public boolean question(){
+    public boolean question(Avatar name){
         boolean questionHasBeenAnswered = false;
+        boolean hasLiterature = name.checkForLiterature(this.literature.getName());
         if(this.name.equals("Bokvetenskap 101")){
             System.out.println("What is the name of Pippi Longstocking's creator?");
             System.out.println("A: Astrid Lindgren");
-            System.out.println("B: Stieg H. Larsson");
+            if(!hasLiterature) {
+                System.out.println("B: Stieg H. Larsson");
+            }
             System.out.println("C: Klaus af Hausserbach");
             while(!questionHasBeenAnswered) {
             System.out.print("Enter your answer (A,B or C): ");
@@ -45,7 +47,7 @@ public class Course {
                     if (answer.equals("a")) {
                         return true;
                     } else {
-                        System.out.print("Wrong answer! ");
+                        System.out.println("Wrong answer! ");
                         return false;
                     }
                 }
@@ -53,7 +55,9 @@ public class Course {
         }
         if(this.name.equals("Datakommunikation 301")){
             System.out.println("What is ADSL short for?");
-            System.out.println("A: Advanced Data Security Line");
+            if(!hasLiterature) {
+                System.out.println("A: Advanced Data Security Line");
+            }
             System.out.println("B: Automatic Dial-up Server Link");
             System.out.println("C: Asymmetric Digital Subscriber Line");
             while(!questionHasBeenAnswered) {
@@ -64,7 +68,7 @@ public class Course {
                     if (answer.equals("c")) {
                         return true;
                     } else {
-                        System.out.print("Wrong answer! ");
+                        System.out.println("Wrong answer! ");
                         return false;
                     }
                 }

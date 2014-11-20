@@ -27,7 +27,7 @@ public class Teacher extends Creature {
             Random n = new Random();
             int randNum = n.nextInt(4);
             if (randNum > 0) {
-                if (this.course.question()) {
+                if (this.course.question(name)) {
                     System.out.println("High five! I'll report your result to UpDok immediately!");
                     name.addFinishedCourse(this.course.toString());
                     name.updateHP(this.course.getHP());
@@ -37,7 +37,7 @@ public class Teacher extends Creature {
             Random n = new Random();
             int randNum = n.nextInt(2);
             if (randNum > 0) {
-                if (this.course.question()) {
+                if (this.course.question(name)) {
                     System.out.println("Nice, you remembered!");
                 }else{
                     System.out.println("Looks like you have to enroll this course again!");

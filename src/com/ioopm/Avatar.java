@@ -127,4 +127,13 @@ class Avatar{
         System.out.println("Item not found in inventory. ");
         return -1;
     }
+
+    public boolean checkForLiterature(String bookName){
+        for(Items a:this.inventory){
+            if(a.toString().equals(bookName)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
