@@ -48,4 +48,9 @@ public class Teacher extends Creature {
             }
         }
     }
+
+    public Book trade(Book tradeOffer){
+        Book mumboJumbo = new Book("Skit", "ErikBallarUr", 2045, 500);
+        return mumboJumbo;
+    }
 }

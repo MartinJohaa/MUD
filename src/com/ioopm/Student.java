@@ -33,4 +33,11 @@ public class Student extends Creature{
 
     public void question(Avatar name){
     }
+
+    public Book trade(Book tradeOffer){
+        Book returnBook = this.courseBook;
+        this.courseBook = tradeOffer;
+        return returnBook;
+
+    }
 }

@@ -191,6 +191,24 @@ class Main
                         enteredNewRoom = false;
                     }
                     break;
+                /*
+                case "trade":
+                    enteredNewRoom = false;
+                    System.out.println("Specify which student you want to trade with (surname lastname): ");
+                    Scanner studentInput = new Scanner(System.in);
+                    String tradingStudentName = studentInput.nextLine().toLowerCase();
+                    ArrayList<Creature> creaturesInRoom = name.getCurrentLocation().getCreatureList();
+                    for (Creature a:creaturesInRoom){
+                        if (a.toString().equals(tradingStudentName)){
+                            System.out.println("Do you want the course literature or the correct answer to \nthe teachers" +
+                                    "question?");
+                            Scanner trade = new Scanner(System.in);
+                            String tradeChoice = trade.nextLine().toLowerCase();
+                            if (tradeChoice.equals(a.getCourseB()))
+                            a.trade(tradeChoice)
+                        }
+                    }
+                    break;*/
 
                 case "talk":
                     enteredNewRoom = false;

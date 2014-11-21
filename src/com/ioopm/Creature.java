@@ -47,4 +47,6 @@ abstract class Creature {
     }
 
     abstract void question(Avatar name);
+
+    abstract Book trade(Book tradeOffer);
 }
