@@ -57,6 +57,13 @@ class Avatar{
         return false;
     }
 
+    public void addItemToInventory(Items itemToAdd){
+        this.inventory.add(itemToAdd);
+    }
+    public void removeItemFromInventory(int index){
+        this.inventory.remove(index);
+    }
+
     public int getHP(){
         return this.HP;
     }
@@ -130,7 +137,7 @@ class Avatar{
 
     public boolean checkForLiterature(String bookName){
         for(Items a:this.inventory){
-            if(a.toString().equals(bookName)){
+            if(a.getName().equals(bookName)){
                 return true;
             }
         }

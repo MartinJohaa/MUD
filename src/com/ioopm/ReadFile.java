@@ -208,7 +208,7 @@ public class ReadFile {
             String stringCourseHP = courseScan.nextLine();
             stringCourseHP = stringCourseHP.substring(1, stringCourseHP.length());
             int courseHP = Integer.parseInt(stringCourseHP);
-            Book courseLiterature = Main.bookCreator.booksInWorld[1];
+            Book courseLiterature = Main.bookCreator.booksInWorld[x];
             for (int i = 0; i < 6; i++) {
                 if (stringCourseLiterature.equals(Main.bookCreator.booksInWorld[i])) {
                     courseLiterature = Main.bookCreator.booksInWorld[i];

@@ -74,10 +74,10 @@ class Main
     }
 
     public static void placeBooks(Room[] world, Book[] books){
-        for (int i = 0; i < 6 ; i++) {
+        for (int i = 0; i < 4 ; i++) {
             world[randomizer.nextInt(19)].addItem(books[i]);
         }
-        int bookIndex = 6;
+        int bookIndex = 4;
         for (int i = 0; i < 2; i++) {
             Main.students[i].setCourseBook(books[bookIndex]);
             bookIndex += 1;
@@ -191,24 +191,44 @@ class Main
                         enteredNewRoom = false;
                     }
                     break;
-                /*
+
                 case "trade":
                     enteredNewRoom = false;
                     System.out.println("Specify which student you want to trade with (surname lastname): ");
                     Scanner studentInput = new Scanner(System.in);
                     String tradingStudentName = studentInput.nextLine().toLowerCase();
                     ArrayList<Creature> creaturesInRoom = name.getCurrentLocation().getCreatureList();
+                    boolean studentFound = false;
                     for (Creature a:creaturesInRoom){
-                        if (a.toString().equals(tradingStudentName)){
-                            System.out.println("Do you want the course literature or the correct answer to \nthe teachers" +
-                                    "question?");
-                            Scanner trade = new Scanner(System.in);
-                            String tradeChoice = trade.nextLine().toLowerCase();
-                            if (tradeChoice.equals(a.getCourseB()))
-                            a.trade(tradeChoice)
+                        if (a.toString().toLowerCase().equals(tradingStudentName)){
+                            studentFound = true;
+                            Course studentCourse = a.getCourse();
+                            Book bookOfStudentCourse = studentCourse.getLiterature();
+                            System.out.printf("%s, %s", studentCourse.toString(), bookOfStudentCourse.getName());
+                            if(name.checkForLiterature(bookOfStudentCourse.getName())) {
+                                System.out.println("Do you want the course literature or the correct answer to \nthe teacher's" +
+                                        "question? (literature/answer)");
+                                Scanner trade = new Scanner(System.in);
+                                String tradeChoice = trade.nextLine().toLowerCase();
+                                if (tradeChoice.equals("literature")) {
+                                    int bookIndex = name.findItemIndex(bookOfStudentCourse.getName().toLowerCase());
+                                    Book tradeOffer = (Book)name.getItemAtIndex(bookIndex);
+                                    Book bookToReceive = a.trade(tradeOffer);
+                                    name.removeItemFromInventory(bookIndex);
+                                    name.addItemToInventory(bookToReceive);
+                                    System.out.println("Successfully traded book!");
+                                    break;
+                                }
+                            }else{
+                                System.out.println("Go away, you have NOTHING for me!!");
+                                break;
+                            }
                         }
                     }
-                    break;*/
+                    if (!studentFound) {
+                        System.out.println("No student here with that name!");
+                    }
+                    break;
 
                 case "talk":
                     enteredNewRoom = false;
@@ -438,6 +458,12 @@ class Main
     Sphinx sphinx = new Sphinx(sphinxLocation);
     linkCourses(courseCreator.courseList, tutors);
     linkCourses(courseCreator.courseList, students);
+    System.out.printf("%s",courseCreator.courseList[0].getLiterature().getName());
+    System.out.printf("%s",courseCreator.courseList[1].getLiterature().getName());
+    System.out.printf("%s",courseCreator.courseList[2].getLiterature().getName());
+    System.out.printf("%s",courseCreator.courseList[3].getLiterature().getName());
+    System.out.printf("%s",courseCreator.courseList[4].getLiterature().getName());
+    System.out.printf("%s",courseCreator.courseList[5].getLiterature().getName());
     playGame(playerAvatar, sphinx);
     }
 }

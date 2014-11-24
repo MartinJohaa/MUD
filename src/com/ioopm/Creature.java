@@ -36,6 +36,9 @@ abstract class Creature {
 
     public void setCourseBook(Book b){
     }
+    public Book getCourseBook(){
+        return(new Book("Erik","sa",1690,5));
+    }
 
     public void talk(){
     }
