@@ -307,7 +307,7 @@ public class Course {
             }
         }
         if(this.name.equals("Musikteori")){
-            System.out.println("How is the easiest way to learn the guitar?");
+            System.out.println("What is the easiest way to learn the guitar?");
             System.out.println("A: Rocksmith");
             if(!hasLiterature) {
                 System.out.println("B: Rockband");

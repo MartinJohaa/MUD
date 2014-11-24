@@ -162,8 +162,17 @@ class Main
             switch(input1){
                 case "enroll":
                     enteredNewRoom = false;
-                    String input2 = scannerInput.nextLine().toLowerCase().substring(1);
+                    String input2 = scannerInput.nextLine().toLowerCase();
+                    if(input2.length()<1){
+                        System.out.println("(enroll *course name*)");
+                        break;
+                    }
+                    input2 = input2.substring(1);
                     int teacherIndex = name.getCurrentLocation().ifTeacherPresentGetIndex();
+                    if (teacherIndex<0){
+                        System.out.println("Invalid input!");
+                        break;
+                    }
                     Creature teacherInRoom = name.getCurrentLocation().getCreature(teacherIndex);
                     if (teacherIndex>=0){
                         if (input2.equals(teacherInRoom.getCourse().toString().toLowerCase())) {
