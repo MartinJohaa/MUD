@@ -3,4 +3,12 @@ The Art of Data Communication;Bucky Guy;2004;1
 You will C;Baba-K;1967;2
 Functional Programming in ML;John Davids;1944;2
 Jurassic Park;Steven Spielberg;1993;1
-|_0|_b00|<;Adil;2002;1
+|_0|_b00|<;Adil Arzhane;2002;1
+Chokladkokning;Willy Wonka;2008;2
+Smidesboken;Erik Ståhl;1895;3
+Modern Presentationsteknik;Geoff Burgouise;1924;2
+Att Tälta I Ur och Skur;Anita Fältskogh;1948;2
+XIV;Ludwig af Pommern;1769;1
+Ostar Från Frankrikes Vidder;Bellatrix de Francoise;1969;1
+Bra Glid;Kim Svedlund;2006;2
+Det Svänger!;Dave Grohl;2009;2

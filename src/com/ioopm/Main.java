@@ -11,7 +11,7 @@ class Main
     public static ReadFile courseCreator;
     public static Random randomizer = new Random();
     public static Avatar playerAvatar;
-    public static Creature[] tutors = new Creature[6];
+    public static Creature[] tutors = new Creature[14];
     public static Creature[] students = new Creature[2];
 
     public static int[] indexOfSphinxRooms = {1,3,6,10,11,14,15,18};
@@ -74,10 +74,10 @@ class Main
     }
 
     public static void placeBooks(Room[] world, Book[] books){
-        for (int i = 0; i < 4 ; i++) {
+        for (int i = 0; i < 12 ; i++) {
             world[randomizer.nextInt(19)].addItem(books[i]);
         }
-        int bookIndex = 4;
+        int bookIndex = 12;
         for (int i = 0; i < 2; i++) {
             Main.students[i].setCourseBook(books[bookIndex]);
             bookIndex += 1;
@@ -458,12 +458,12 @@ class Main
     Sphinx sphinx = new Sphinx(sphinxLocation);
     linkCourses(courseCreator.courseList, tutors);
     linkCourses(courseCreator.courseList, students);
-    System.out.printf("%s",courseCreator.courseList[0].getLiterature().getName());
-    System.out.printf("%s",courseCreator.courseList[1].getLiterature().getName());
-    System.out.printf("%s",courseCreator.courseList[2].getLiterature().getName());
-    System.out.printf("%s",courseCreator.courseList[3].getLiterature().getName());
-    System.out.printf("%s",courseCreator.courseList[4].getLiterature().getName());
-    System.out.printf("%s",courseCreator.courseList[5].getLiterature().getName());
+    playerAvatar.addFinishedCourse("Vallarteknik");
+    playerAvatar.addFinishedCourse("Ostkunskap");
+    playerAvatar.addFinishedCourse("Cherish Your Chocolate");
+    playerAvatar.addFinishedCourse("MOOP");
+    playerAvatar.addFinishedCourse("Camping");
+    playerAvatar.addFinishedCourse("Musikteori");
     playGame(playerAvatar, sphinx);
     }
 }

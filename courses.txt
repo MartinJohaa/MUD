@@ -2,5 +2,13 @@ Bokvetenskap 101;Det skrivna ordet;10
 Datakommunikation 301;The Art of Data Communication;20
 IOOPM;You will C;20
 PKD;Functional Programming in ML;15
-Dinosaurie Lära;Jurassic Park;25
+Dinosaurielära;Jurassic Park;25
 AsciiArt;|_0|_b00|<;15
+Cherish Your Chocolate;Chokladkokning;10
+Gjutjärnssmide;Smidesboken;15
+Presentera med overhead;Modern Presentationsteknik;10
+Camping;Att Tälta I Ur och Skur;15
+MOOP;XIV;10
+Ostkunskap;Ostar Från Frankrikes Vidder;5
+Vallarteknik;Bra Glid;10
+Musikteori;Det Svänger!;10

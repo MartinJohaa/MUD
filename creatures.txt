@@ -4,5 +4,13 @@ Agneta Beckenbauer;Room 1211;Teacher
 Sven Lindhammar;Room 1209;Teacher
 Doris Knowsalot;Room 1210;Teacher
 Elain Porcelain;Room 2245;Teacher
-Martin Johansson;FooBar;Student
-Erik Englund;FooBar;Student
+Sture Snorlasson;Hallway 4;Teacher
+Henrik Svensson;Hallway 2;Teacher
+Greta Kassler;Skrubben;Teacher
+Yosef Kartowskij;Janitor's Hideout;Teacher
+Helené Gabrielsson;Room 2246;Teacher
+Ulrik von Jessen;Room 2247;Teacher
+Gunde af Svan;Broken Elevator;Teacher
+Lucas Mannerstroem;Hallway 1;Teacher
+Martin Johansson;Archive;Student
+Erik Englund;Update;Student

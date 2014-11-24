@@ -95,7 +95,7 @@ public class ReadFile {
         /**
          *  Creating an array which is filled with creature-objects
          */
-        creatures = new Creature[8];
+        creatures = new Creature[16];
         /**
          *  Separates the segments at "; " instead of just a blankspace
          */
@@ -156,7 +156,7 @@ public class ReadFile {
     }
 
     public Book[] readBookFile() {
-        booksInWorld = new Book[8];
+        booksInWorld = new Book[14];
         bookScan.useDelimiter(";");
         int x = 0;
         while (bookScan.hasNext()) {
@@ -199,7 +199,7 @@ public class ReadFile {
     }
 
     public Course[] readCourseFile() {
-        courseList = new Course[6];
+        courseList = new Course[14];
         courseScan.useDelimiter(";");
         int x = 0;
         while(courseScan.hasNext()){
@@ -209,7 +209,7 @@ public class ReadFile {
             stringCourseHP = stringCourseHP.substring(1, stringCourseHP.length());
             int courseHP = Integer.parseInt(stringCourseHP);
             Book courseLiterature = Main.bookCreator.booksInWorld[x];
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 13; i++) {
                 if (stringCourseLiterature.equals(Main.bookCreator.booksInWorld[i])) {
                     courseLiterature = Main.bookCreator.booksInWorld[i];
                 }
