@@ -177,6 +177,10 @@ class Main
                     if (teacherIndex>=0){
                         if (input2.equals(teacherInRoom.getCourse().toString().toLowerCase())) {
                             Course courseToBeAdded = teacherInRoom.getCourse();
+                            if (name.searchFinishedCourses(courseToBeAdded.toString())){
+                                System.out.println("You have already finished this course!");
+                                break;
+                            }
                             if (name.searchUnfinishedCourses(courseToBeAdded.toString())) {
                                 System.out.println("You have already enrolled in this course!");
                                 break;
