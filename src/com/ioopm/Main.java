@@ -45,6 +45,11 @@ class Main
         }
     }
 
+    /**
+     * places key-objects in the room-objects' item lists
+     * @param world
+     * @param name
+     */
     public static void placeKeys(Room[] world, Avatar name){
         int keysForUnlockedRooms = 4;
         int keysForLockedRooms = 8;
