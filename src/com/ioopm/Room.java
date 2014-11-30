@@ -11,7 +11,7 @@ public class Room {
     private String[] east = new String[2];
     private String[] south = new String[2];
     private String[] west = new String[2];
-    private ArrayList<Items> items = new ArrayList<Items>();
+    private ArrayList<Item> items = new ArrayList<Item>();
     private ArrayList<Creature> creatures = new ArrayList<Creature>();
 
     /**
@@ -186,7 +186,7 @@ public class Room {
      * Method to add an item to the room's itemlist
      * @param item the item to be added
      */
-    public void addItem(Items item) {
+    public void addItem(Item item) {
         this.items.add(item);
     }
 
@@ -195,7 +195,7 @@ public class Room {
      * itemlist
      * @param item the item to be removed
      */
-    public void removeItem(Items item) {
+    public void removeItem(Item item) {
         this.items.remove(item);
     }
 
@@ -209,7 +209,7 @@ public class Room {
      */
     public int findItemIndex(String itemName) {
         int i = 0;
-        for (Items a : this.items) {
+        for (Item a : this.items) {
             String aName = a.getName().toLowerCase();
             if (aName.equals(itemName)) {
                 return i;
@@ -220,14 +220,14 @@ public class Room {
         return -1;
     }
 
-    public Items getItemAtIndex(int i) {
+    public Item getItemAtIndex(int i) {
         return this.items.get(i);
     }
 
     public String printItems() {
         String result = "";
         for (int i = 0; i < this.items.size(); i++) {
-            Items tempItem = this.items.get(i);
+            Item tempItem = this.items.get(i);
             if (i == (this.items.size() - 1)) {
                 result += tempItem.toString();
             } else {

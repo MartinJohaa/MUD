@@ -14,7 +14,7 @@ class Avatar{
     private String name;
     private ArrayList<String> unfinishedCourses = new ArrayList<String>();
     private ArrayList<String> finishedCourses = new ArrayList<String>();
-    private ArrayList<Items> inventory = new ArrayList<>();
+    private ArrayList<Item> inventory = new ArrayList<>();
     int availableInventorySpace = 10;
     private int HP = 60;
     public Avatar(String name){
@@ -57,7 +57,7 @@ class Avatar{
         return false;
     }
 
-    public void addItemToInventory(Items itemToAdd){
+    public void addItemToInventory(Item itemToAdd){
         this.inventory.add(itemToAdd);
     }
     public void removeItemFromInventory(int index){
@@ -82,7 +82,7 @@ class Avatar{
         return this.roomList;
     }
 
-    public void pickupItem(Items itemName){
+    public void pickupItem(Item itemName){
         if ((availableInventorySpace - (itemName.getSize())) >= 0){
             currentLocation.removeItem(itemName);
             this.inventory.add(itemName);
@@ -93,13 +93,13 @@ class Avatar{
         }
     }
 
-    public void dropItem(Items itemName){
+    public void dropItem(Item itemName){
         this.inventory.remove(itemName);
         currentLocation.addItem(itemName);
         this.availableInventorySpace += (itemName.getSize());
     }
 
-    public Items getItemAtIndex(int index){
+    public Item getItemAtIndex(int index){
         return (this.inventory.get(index));
     }
 
@@ -124,7 +124,7 @@ class Avatar{
 
     public int findItemIndex(String itemName) {
         int i = 0;
-        for (Items a : this.inventory) {
+        for (Item a : this.inventory) {
             String aName = a.getName().toLowerCase();
             if (aName.equals(itemName)) {
                 return i;
@@ -136,7 +136,7 @@ class Avatar{
     }
 
     public boolean checkForLiterature(String bookName){
-        for(Items a:this.inventory){
+        for(Item a:this.inventory){
             if(a.getName().equals(bookName)){
                 return true;
             }

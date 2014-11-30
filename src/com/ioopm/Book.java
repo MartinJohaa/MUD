@@ -1,7 +1,7 @@
 package com.ioopm;
 import java.lang.String;
 
-public class Book extends Items {
+public class Book extends Item {
     private String title;
     private String author;
     private int yearOfPublishing;

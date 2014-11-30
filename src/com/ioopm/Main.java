@@ -324,7 +324,7 @@ class Main
                         itemInput = itemInput.substring(1, (itemInput.length() - 1));
                         int itemIndex = name.findItemIndex(itemInput);
                         if (itemIndex >= 0) {
-                            Items tempBook = name.getItemAtIndex(itemIndex);
+                            Item tempBook = name.getItemAtIndex(itemIndex);
                             name.dropItem(tempBook);
                             System.out.println("Item dropped successfully!");
                             break;

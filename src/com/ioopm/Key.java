@@ -1,5 +1,5 @@
 package com.ioopm;
-public class Key extends Items{
+public class Key extends Item {
     private String name = "Key";
     public Key(){
         super(1);

@@ -1,7 +1,7 @@
 package com.ioopm;
-class Items{
+class Item {
     private int size;
-    public Items(int size){
+    public Item(int size){
         this.size = size;
     }
     public int getSize(){
