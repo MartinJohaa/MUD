@@ -186,25 +186,25 @@ class Main
             System.out.println("Choose your action: ");
             Scanner scannerInput = new Scanner(System.in);
             String input1 = scannerInput.next().toLowerCase();
-            switch(input1){
+            switch(input1) {
                 case "enroll":
                     enteredNewRoom = false;
                     String input2 = scannerInput.nextLine().toLowerCase();
-                    if(input2.length()<1){
+                    if (input2.length() < 1) {
                         System.out.println("(enroll *course name*)");
                         break;
                     }
                     input2 = input2.substring(1);
                     int teacherIndex = name.getCurrentLocation().ifTeacherPresentGetIndex();
-                    if (teacherIndex<0){
+                    if (teacherIndex < 0) {
                         System.out.println("Invalid input!");
                         break;
                     }
                     Creature teacherInRoom = name.getCurrentLocation().getCreature(teacherIndex);
-                    if (teacherIndex>=0){
+                    if (teacherIndex >= 0) {
                         if (input2.equals(teacherInRoom.getCourse().toString().toLowerCase())) {
                             Course courseToBeAdded = teacherInRoom.getCourse();
-                            if (name.searchFinishedCourses(courseToBeAdded.toString())){
+                            if (name.searchFinishedCourses(courseToBeAdded.toString())) {
                                 System.out.println("You have already finished this course!");
                                 break;
                             }
@@ -227,7 +227,7 @@ class Main
                     enteredNewRoom = true;
                     String loc = name.getCurrentLocation().toString();
                     move(name, input2);
-                    if (loc.equals(name.getCurrentLocation().toString())){
+                    if (loc.equals(name.getCurrentLocation().toString())) {
                         enteredNewRoom = false;
                     }
                     break;
@@ -239,27 +239,27 @@ class Main
                     String tradingStudentName = studentInput.nextLine().toLowerCase();
                     ArrayList<Creature> creaturesInRoom = name.getCurrentLocation().getCreatureList();
                     boolean studentFound = false;
-                    for (Creature a:creaturesInRoom){
-                        if (a.toString().toLowerCase().equals(tradingStudentName)){
+                    for (Creature a : creaturesInRoom) {
+                        if (a.toString().toLowerCase().equals(tradingStudentName)) {
                             studentFound = true;
                             Course studentCourse = a.getCourse();
                             Book bookOfStudentCourse = studentCourse.getLiterature();
                             System.out.printf("%s, %s", studentCourse.toString(), bookOfStudentCourse.getName());
-                            if(name.checkForLiterature(bookOfStudentCourse.getName())) {
+                            if (name.checkForLiterature(bookOfStudentCourse.getName())) {
                                 System.out.println("Do you want the course literature or the correct answer to \nthe teacher's" +
                                         "question? (literature/answer)");
                                 Scanner trade = new Scanner(System.in);
                                 String tradeChoice = trade.nextLine().toLowerCase();
                                 if (tradeChoice.equals("literature")) {
                                     int bookIndex = name.findItemIndex(bookOfStudentCourse.getName().toLowerCase());
-                                    Book tradeOffer = (Book)name.getItemAtIndex(bookIndex);
+                                    Book tradeOffer = (Book) name.getItemAtIndex(bookIndex);
                                     Book bookToReceive = a.trade(tradeOffer);
                                     name.removeItemFromInventory(bookIndex);
                                     name.addItemToInventory(bookToReceive);
                                     System.out.println("Successfully traded book!");
                                     break;
                                 }
-                            }else{
+                            } else {
                                 System.out.println("Go away, you have NOTHING for me!!");
                                 break;
                             }
@@ -273,21 +273,21 @@ class Main
                 case "talk":
                     enteredNewRoom = false;
                     input2 = scannerInput.next().toLowerCase();
-                    if(input2.equals("sphinx")){
-                       ArrayList<Creature> rc = name.getCurrentLocation().getCreatureList();
-                       boolean sphinxInRoom = false;
-                       for (Creature a:rc){
-                            if (a.toString().equals("The Almighty Sphinx of Eternal Life and Crazy Powers")){
+                    if (input2.equals("sphinx")) {
+                        ArrayList<Creature> rc = name.getCurrentLocation().getCreatureList();
+                        boolean sphinxInRoom = false;
+                        for (Creature a : rc) {
+                            if (a.toString().equals("The Almighty Sphinx of Eternal Life and Crazy Powers")) {
                                 sphinx.communicate();
                                 sphinxInRoom = true;
                             }
-                       }
-                       if (!sphinxInRoom){
-                           System.out.println("There ain't no Sphinx in here!");
-                       }
+                        }
+                        if (!sphinxInRoom) {
+                            System.out.println("There ain't no Sphinx in here!");
+                        }
                         break;
                     }
-                    if(input2.equals("student")) {
+                    if (input2.equals("student")) {
                         System.out.println("Specify which student (surname lastname): ");
                         Scanner studentName = new Scanner(System.in);
                         String nameInput = studentName.nextLine().toLowerCase();
@@ -311,7 +311,7 @@ class Main
                     enteredNewRoom = false;
                     input2 = scannerInput.next().toLowerCase();
                     String itemInput = scannerInput.next();
-                    if (input2.equals("up")){
+                    if (input2.equals("up")) {
                         Room location = name.getCurrentLocation();
                         if (itemInput.equals("book")) {
                             System.out.println("Please enter the name of the book you want to pick up:");
@@ -356,9 +356,13 @@ class Main
                     break;
 
                 case "graduate":
-                    if (sphinx.graduate(name)) {
-                        gameOn = false;
-                        break;
+                    if (name.getCurrentLocation().getCreatureList().contains(sphinx)) {
+                        if (sphinx.graduate(name)) {
+                            gameOn = false;
+                            break;
+                        }
+                    }else{
+                        System.out.println("There is no Sphinx in here!");
                     }
                     enteredNewRoom = false;
                     break;
