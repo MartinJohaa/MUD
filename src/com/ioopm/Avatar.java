@@ -57,13 +57,6 @@ class Avatar{
         return false;
     }
 
-    public void addItemToInventory(Item itemToAdd){
-        this.inventory.add(itemToAdd);
-    }
-    public void removeItemFromInventory(int index){
-        this.inventory.remove(index);
-    }
-
     public int getHP(){
         return this.HP;
     }
@@ -93,10 +86,21 @@ class Avatar{
         }
     }
 
+    public ArrayList<Item> getItemList(){
+        return this.inventory;
+    }
+
     public void dropItem(Item itemName){
         this.inventory.remove(itemName);
         currentLocation.addItem(itemName);
         this.availableInventorySpace += (itemName.getSize());
+    }
+
+    public void addItemToInventory(Item itemToAdd){
+        this.inventory.add(itemToAdd);
+    }
+    public void removeItemFromInventory(int index){
+        this.inventory.remove(index);
     }
 
     public Item getItemAtIndex(int index){
@@ -124,9 +128,10 @@ class Avatar{
 
     public int findItemIndex(String itemName) {
         int i = 0;
+        String itemToBeFound = itemName.toLowerCase();
         for (Item a : this.inventory) {
             String aName = a.getName().toLowerCase();
-            if (aName.equals(itemName)) {
+            if (aName.equals(itemToBeFound)) {
                 return i;
             }
             i++;
