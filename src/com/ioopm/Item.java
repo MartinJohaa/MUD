@@ -1,5 +1,5 @@
 package com.ioopm;
-class Item {
+abstract class Item {
     private int size;
     public Item(int size){
         this.size = size;
@@ -7,10 +7,6 @@ class Item {
     public int getSize(){
 	return size;
     }
-    public String toString(){
-        return "Error! ";
-    };
-    public String getName(){
-        return "Error! ";
-    };
+    abstract public String toString();
+    abstract public String getName();
 }

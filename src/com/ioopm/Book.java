@@ -16,10 +16,6 @@ public class Book extends Item {
         return this.title;
     }
 
-    /*public String getAuthor() {
-        return this.author;
-    }*/
-
     public String toString() {
         return ("\"" + this.title + "\"" + " by " + this.author);
     }
