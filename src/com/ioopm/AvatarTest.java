@@ -75,7 +75,6 @@ public class AvatarTest extends TestCase {
     @Test
     public void testFindItemIndex() throws Exception {
         testAvatar.addItemToInventory(testBookTwo);
-        testAvatar.printInventory();
         int testInt = testAvatar.findItemIndex("testcourseliteraturetwo");
         assertEquals(true, testInt>=0);
     }
