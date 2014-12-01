@@ -6,6 +6,11 @@ public class Teacher extends Creature {
 
     private Course course;
 
+    /**
+     *
+     * @param name the name of the teacher
+     * @param roomName the room you want to place the teacher
+     */
     public Teacher(String name, String roomName) {
         super(name, roomName);
     }
@@ -18,10 +23,18 @@ public class Teacher extends Creature {
         return this.course;
     }
 
+    /**
+     * Desides which kind of creature
+     * @return an int to decide which kind of creature
+     */
     public int whichKindOfCreature() {
         return 2;
     }
 
+    /**
+     * Asks the question for the teachers course
+     * @param name the playerAvatar
+     */
     public void question(Avatar name) {
         if (name.searchUnfinishedCourses(this.course.toString())) {
             Random n = new Random();
@@ -49,6 +62,11 @@ public class Teacher extends Creature {
         }
     }
 
+    /**
+     * Full of crap. Had to override trade in Creature
+     * @param tradeOffer the book you want to trade
+     * @return the book you want
+     */
     public Book trade(Book tradeOffer){
         Book mumboJumbo = new Book("Skit", "ErikBallarUr", 2045, 500);
         return mumboJumbo;
