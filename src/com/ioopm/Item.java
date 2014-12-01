@@ -1,6 +1,7 @@
 package com.ioopm;
 abstract class Item {
     private int size;
+
     public Item(int size){
         this.size = size;
     }

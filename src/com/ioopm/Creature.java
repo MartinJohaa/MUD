@@ -18,6 +18,11 @@ abstract class Creature {
         this.location.addCreature(this);
 
     }
+
+    /**
+     * changes the location of the Creature-object to another Room
+     * @param roomName the Room the creature will be moved to
+     */
     public void changeLocation(Room roomName){
         /*remove from current room*/
         this.location.removeCreature(this);
@@ -31,25 +36,58 @@ abstract class Creature {
         return this.name;
     }
 
+    /**
+     * method not used here, specialized in sub-classes
+     * @param c
+     */
     public void setCourse(Course c){
     }
 
+    /**
+     * method not used here, specialized in sub-classes
+     * @param b
+     */
     public void setCourseBook(Book b){
     }
+
+    /**
+     * method not used here, specialized in sub-classes
+     * @return
+     */
     public Book getCourseBook(){
         return(new Book("Erik","sa",1690,5));
     }
 
+    /**
+     * method not used here, specialized in sub-classes
+     */
     public void talk(){
     }
 
+    /**
+     * method not used here, specialized in sub-classes
+     * @return
+     */
     abstract public Course getCourse();
 
+    /**
+     * method not used here, specialized in sub-classes
+     * @return
+     */
     public int whichKindOfCreature(){
         return -1;
     }
 
+    /**
+     * method not used here, specialized in sub-classes
+     * @param name
+     */
     abstract void question(Avatar name);
 
+    /**
+     * method not used here, specialized in sub-classes
+     * @param tradeOffer
+     * @return
+     */
     abstract Book trade(Book tradeOffer);
 }

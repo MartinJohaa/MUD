@@ -37,6 +37,11 @@ class Main
         return -1;
     }
 
+    /**
+     * links a course to a specific Teacher-object
+     * @param courses a list of Course-objects to be linked
+     * @param tutors a list of Teacher-objects to set the courses in
+     */
     public static void linkCourses(Course[] courses, Creature[] tutors){
         int i = 0;
         for(Creature a:tutors){
@@ -47,8 +52,8 @@ class Main
 
     /**
      * places key-objects in the room-objects' item lists
-     * @param world
-     * @param name
+     * @param world a list of Room-objects in which to place the keys
+     * @param name name of the Avatar in which a Room-list is specified
      */
     public static void placeKeys(Room[] world, Avatar name){
         int keysForUnlockedRooms = 4;
@@ -78,6 +83,11 @@ class Main
         }
     }
 
+    /**
+     * places Book-objects into Room-objects' item lists
+     * @param world a list of Room-objects in which to place the books
+     * @param books a list of Book-objects to be placed into the rooms
+     */
     public static void placeBooks(Room[] world, Book[] books){
         for (int i = 0; i < 12 ; i++) {
             world[randomizer.nextInt(19)].addItem(books[i]);
@@ -90,8 +100,9 @@ class Main
     }
 
     /**
-     *
-     * @param name
+     * moves (changes location of) an avatar in a specified direction
+     * @param name the name of the avatar to be moved
+     * @param direction the direction to move avatar in
      */
     public static void move(Avatar name, String direction){
         Room location = name.getCurrentLocation();
@@ -111,6 +122,11 @@ class Main
         }
     }
 
+    /**
+     * changes the status of a lock in a specific room to be open
+     * @param direction
+     * @param name
+     */
     public static void unlockDoor(String direction, Avatar name){
         String oppositeDirection;
         switch (direction){

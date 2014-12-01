@@ -7,6 +7,13 @@ public class Course {
     private Book literature;
     private int HP;
 
+    /**
+     * Creates a Course-object with a name, course literature and
+     * a specified amount of "graduation-points"
+     * @param name name of the course
+     * @param literature name course literature
+     * @param HP int representing amount of "graduation-points"
+     */
     public Course(String name, Book literature, int HP) {
         this.name = name;
         this.literature = literature;
@@ -21,14 +28,17 @@ public class Course {
         return this.literature;
     }
 
-    /*public Creature getTutor(){
-        return this.tutor;
-    }*/
-
     public int getHP() {
         return this.HP;
     }
 
+    /**
+     * Gives the user a question about something related to
+     * the course the related teacher holds
+     * @param name the avatar used to search if it holds the related course literature
+     * @return true if the user inputs the correct answer to the question,
+     * else false
+     */
     public boolean question(Avatar name){
         boolean questionHasBeenAnswered = false;
         boolean hasLiterature = name.checkForLiterature(this.literature.getName());

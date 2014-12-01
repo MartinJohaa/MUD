@@ -1,6 +1,10 @@
 package com.ioopm;
 public class Key extends Item {
     private String name = "Key";
+
+    /**
+     * creates a Key-object with size 1
+     */
     public Key(){
         super(1);
     }
