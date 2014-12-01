@@ -123,9 +123,10 @@ class Main
     }
 
     /**
-     * changes the status of a lock in a specific room to be open
-     * @param direction
-     * @param name
+     * unlocks a door in a specified direction
+     * @param direction the direction of the door to be unlocked
+     * @param name name of the Avatar used to find the opposite room in order to unlock from
+     *             the other side of the door as well
      */
     public static void unlockDoor(String direction, Avatar name){
         String oppositeDirection;
@@ -165,6 +166,11 @@ class Main
         name.setCurrentLocation(originalLocation.toString());
     }
 
+    /**
+     * the main game-loop, runs until the game is finished or the user quits
+     * @param name the name of the player's Avatar
+     * @param sphinx a Sphinx-object to be placed in the world randomly
+     */
     public static void playGame(Avatar name, Sphinx sphinx){
         boolean gameOn = true;
         boolean enteredNewRoom = true;
