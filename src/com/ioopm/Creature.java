@@ -1,6 +1,6 @@
 package com.ioopm;
 
-abstract class Creature {
+public abstract class Creature {
     private String name;
     private Room location;
 
@@ -38,21 +38,21 @@ abstract class Creature {
 
     /**
      * method not used here, specialized in sub-classes
-     * @param c
+     * @param c n/a
      */
     public void setCourse(Course c){
     }
 
     /**
      * method not used here, specialized in sub-classes
-     * @param b
+     * @param b n/a
      */
     public void setCourseBook(Book b){
     }
 
     /**
      * method not used here, specialized in sub-classes
-     * @return
+     * @return n/a
      */
     public Book getCourseBook(){
         return(new Book("Erik","sa",1690,5));
@@ -66,13 +66,13 @@ abstract class Creature {
 
     /**
      * method not used here, specialized in sub-classes
-     * @return
+     * @return none
      */
     abstract public Course getCourse();
 
     /**
      * method not used here, specialized in sub-classes
-     * @return
+     * @return n/a
      */
     public int whichKindOfCreature(){
         return -1;
@@ -80,14 +80,14 @@ abstract class Creature {
 
     /**
      * method not used here, specialized in sub-classes
-     * @param name
+     * @param name n/a
      */
     abstract void question(Avatar name);
 
     /**
      * method not used here, specialized in sub-classes
-     * @param tradeOffer
-     * @return
+     * @param tradeOffer n/a
+     * @return n/a
      */
     abstract Book trade(Book tradeOffer);
 }

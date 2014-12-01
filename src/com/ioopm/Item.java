@@ -1,5 +1,5 @@
 package com.ioopm;
-abstract class Item {
+public abstract class Item {
     private int size;
 
     public Item(int size){

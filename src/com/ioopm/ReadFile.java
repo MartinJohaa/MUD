@@ -5,13 +5,13 @@ import java.lang.System;
 import java.util.*;
 
 public class ReadFile {
-    /**
-     * *************************ROOMS*******************************************
-     */
+    //*************************ROOMS*******************************************//
     private Scanner rooms;
-    // Lade till world variabel här ute så vi kommer åt den utifrån.
     public Room[] world;
 
+    /**
+     *
+     */
     public void openRoomFile() {
         try {
             rooms = new Scanner(new File("rooms.txt"));
@@ -75,9 +75,7 @@ public class ReadFile {
         closeRoomFile();
     }
 
-    /**
-     * *************************CREATURES***************************************
-     */
+    //*************************CREATURES***************************************//
     private Scanner creatureScanner;
     // Lade till world variabel här ute så vi kommer åt den utifrån.
     public Creature[] creatures;
@@ -139,10 +137,7 @@ public class ReadFile {
         closeCreatureFile();
     }
 
-    /**
-     * *************************BOOKS*******************************************
-     */
-
+    //*************************BOOKS*******************************************//
     private Scanner bookScan;
     public Book[] booksInWorld;
 
@@ -182,10 +177,7 @@ public class ReadFile {
         closeBookFile();
     }
 
-    /**
-     * *************************COURSES*******************************************
-     */
-
+    //*************************COURSES*******************************************//
     private Scanner courseScan;
     public Course[] courseList;
 

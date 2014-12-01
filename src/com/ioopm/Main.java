@@ -3,8 +3,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-class Main
-{
+public class Main{
     public static ReadFile worldCreator;
     public static ReadFile bookCreator;
     public static ReadFile creatureCreator;

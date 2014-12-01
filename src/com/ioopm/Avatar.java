@@ -1,7 +1,7 @@
 package com.ioopm;
 import java.util.ArrayList;
 
-class Avatar{
+public class Avatar{
     private String[] roomList = {
             "FooBar", "The Tupplurarna's Saxobeat Studio",
             "Hallway 1", "Skrubben", "Room 1211", "Room 1210",
