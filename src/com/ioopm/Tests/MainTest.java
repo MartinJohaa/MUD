@@ -1,5 +1,6 @@
-package com.ioopm;
+package com.ioopm.Tests;
 
+import com.ioopm.Main;
 import junit.framework.*;
 import org.junit.Test;
 
@@ -9,7 +10,7 @@ public class MainTest extends TestCase {
     public void testGetSphinxRoomIndex() throws Exception {
         int indexNum = 5;
         int[] roomIndexArray = {1, 2, 3, 4, 5, 6};
-        assertEquals(Main.getSphinxRoomIndex(indexNum, roomIndexArray), 6);
+        TestCase.assertEquals(Main.getSphinxRoomIndex(indexNum, roomIndexArray), 6);
     }
 
     @Test

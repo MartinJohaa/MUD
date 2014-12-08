@@ -8,8 +8,6 @@ O42 - Profileringsverktyg, mäta vart ett program tillbringar mest tid
 
 Q47 - Ta fram lämpiga enhetstester
 
-X59 - Välstrukturerad presentation
-
 PROJEKT:
 
 Y63 - test-driven utveckling
@@ -22,5 +20,4 @@ Y68 - Komplett proj.uppg.
 -----------------------------
 
 Z69 - ETT C-program
-Z70 - ETT Java-program
 Z71 - ett java/c-program

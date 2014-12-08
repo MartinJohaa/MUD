@@ -1,11 +1,14 @@
-package com.ioopm;
+package com.ioopm.Tests;
 
+import com.ioopm.Avatar;
+import com.ioopm.Book;
+import com.ioopm.Course;
 import junit.framework.TestCase;
 import org.junit.Test;
 
 public class CourseTest extends TestCase {
     Avatar testAvatar = new Avatar("testAvatar");
-    Course testCourse = new Course("testCourse", new Book ("testBook", "testAutor",2222,2), 10);
+    Course testCourse = new Course("testCourse", new Book("testBook", "testAutor",2222,2), 10);
 
     @Test
     public void testQuestion() throws Exception {

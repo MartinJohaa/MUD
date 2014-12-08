@@ -1,5 +1,9 @@
-package com.ioopm;
+package com.ioopm.Tests;
 
+import com.ioopm.Avatar;
+import com.ioopm.Book;
+import com.ioopm.Course;
+import com.ioopm.Key;
 import junit.framework.TestCase;
 import org.junit.Test;
 
