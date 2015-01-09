@@ -35,7 +35,15 @@ public class Main{
         }
         return -1;
     }
-
+    /* requires index = 0 at function call */
+    public static int recFindIndex(String string, String[] array, int index) {
+        if (array[index].equals(string)) {
+            return index;
+        } else {
+            return recFindIndex(string, array, index + 1);
+        }
+    }
+    
     /**
      * links a course to a specific Teacher-object
      * @param courses a list of Course-objects to be linked

@@ -1,12 +1,10 @@
-E10 - Void-pekare i C
+E10 - Void-pekare i C PROJ.KOD
  
-F13 - Översätta mellan rekursivt och iterativt
+F13 - Översätta mellan rekursivt och iterativt     MED MARTIN
 
-N40 - Demonstrerar kompilering, länkning, pinterpret. JIT
+O42 - Profileringsverktyg, mäta vart ett program tillbringar mest tid MED MARTIN
 
-O42 - Profileringsverktyg, mäta vart ett program tillbringar mest tid
-
-Q47 - Ta fram lämpiga enhetstester
+Q47 - Ta fram lämpiga enhetstester PROJ.KOD
 
 PROJEKT:
 
@@ -18,6 +16,3 @@ Y67 - Parprogrammering
 Y68 - Komplett proj.uppg.
 
 -----------------------------
-
-Z69 - ETT C-program
-Z71 - ett java/c-program
